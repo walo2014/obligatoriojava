@@ -8,7 +8,7 @@ public class Persona {
 	private String lugarNacimiento;
 	private String cedula;
 	private char genero;
-	//dc
+	//d
 	
 	
 }
