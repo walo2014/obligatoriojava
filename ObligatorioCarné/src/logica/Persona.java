@@ -1,3 +1,4 @@
+package logica;
 import java.security.Timestamp;
 
 public class Persona {
