@@ -1,5 +1,5 @@
 package logica;
 
 public class Vacuna {
-	//Pendiente de programar
+	//Pendiente de programar por Mariana Presente
 }

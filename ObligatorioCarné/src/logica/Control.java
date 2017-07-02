@@ -1,5 +1,5 @@
 package logica;
 
 public class Control {
-	//Pendiente de programar
+	//Pendiente de programar por Luis
 }

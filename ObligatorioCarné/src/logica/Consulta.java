@@ -1,5 +1,6 @@
 package logica;
 
 public class Consulta {
-	//Pendiente de programar
+	//Pendiente de programar por Maria
+	
 }

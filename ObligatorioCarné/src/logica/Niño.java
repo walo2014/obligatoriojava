@@ -1,5 +1,6 @@
 package logica;
 
 public class Niño {
-	//Pendiente de programar
+	//Pendiente de programar por Luis
+
 }
