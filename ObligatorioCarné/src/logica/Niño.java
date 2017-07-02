@@ -12,6 +12,7 @@ public class Niño {
 	private Registro registros;
 	private int cantRegistrosIngresados;
 
+	//contructor
 	public Niño(String nom,int doc,Calendar fecNac,String serMed,String medCab,boolean tieFon,Registro reg,int canRegIng)
 		{
 			nombre = nom;
