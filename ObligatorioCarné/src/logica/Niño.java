@@ -1,15 +1,16 @@
 package logica;
 
-public class Niño () {
-	//Pendiente de programar por Luis
+public class Niño {
 	//parametros
-		private String nombre;
-		private int documento;
-		private Calendar fechaNacimiento;
-		private String servicioMedico;
-		private String medicoCabecera;
-		private boolean tieneFonasa;
-		private Registro registros;
-		private int cantRegistrosIngresados;
-		
+private String nombre;
+private int documento;
+private Calendar fechaNacimiento;
+private String servicioMedico;
+private String medicoCabecera;
+private boolean tieneFonasa;
+private Registro registros;
+private int cantRegistrosIngresados;
+	
+	
+
 }
