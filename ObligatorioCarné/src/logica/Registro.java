@@ -2,12 +2,12 @@ package logica;
 import java.util.Calendar;
 //Pendiente de programar
 public class Registro {
-	private int fecha;//verificar si es int??
+	private Calendar fecha;//verificar si es int??
 	private String comentario;// debe ir en mayuscula es mas apropiado??
 	//constructor
-	public Registro(int fecha, String comentario){
-		this.fecha = fecha;
-		this.comentario = comentario;
+	public Registro(Calendar fec, String com){//para mi son nombres muy cortos pierde el sentido de la palabra
+		this.fecha = fec;
+		this.comentario = com;
 
 	}
 	public int getFecha() {

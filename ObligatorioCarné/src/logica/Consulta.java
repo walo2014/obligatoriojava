@@ -6,11 +6,11 @@ public class Consulta extends Registro{
 	private String diagnostico;
 	private String recomendaciones;
 	//constructor
-	public Consulta(int fecha, String comentario, String medico, String diagnostico,String recomendaciones){
-		super (fecha, comentario);
-		this.medico=medico;
-		this.diagnostico=diagnostico;
-		this.recomendaciones=recomendaciones;
+	public Consulta(int fec, String com, String med, String diag,String recom){
+		super (fec, com);//herencia??
+		this.medico=med;
+		this.diagnostico=diag;
+		this.recomendaciones=recom;
 	}
 	public String getMedico() {
 		return medico;
