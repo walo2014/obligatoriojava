@@ -1,19 +1,20 @@
 package logica;
 import java.util.Calendar;
 //Pendiente de programar
-public class Registro {
+public abstract class Registro {
 	private Calendar fecha;//verificar si es int??
 	private String comentario;// debe ir en mayuscula es mas apropiado??
+	
 	//constructor
-	public Registro(Calendar fec, String com){//para mi son nombres muy cortos pierde el sentido de la palabra
-		this.fecha = fec;
-		this.comentario = com;
+	public Registro(Calendar fecha, String comentario){//los nombres van completos x eso ponemos this son nombres muy cortos 
+		this.fecha = fecha;
+		this.comentario = comentario;
 
 	}
-	public int getFecha() {
+	public Calendar getFecha() {
 		return fecha;
 	}
-	public void setFecha(int fecha) {
+	public void setFecha(Calendar fecha) {
 		this.fecha = fecha;
 	}
 	public String getComentario() {
@@ -22,10 +23,6 @@ public class Registro {
 	public void setComentario(String comentario) {
 		this.comentario = comentario;
 	}
-}
-
-		
-		
-	}
 	
+	public abstract String mostrarRegistro();
 }

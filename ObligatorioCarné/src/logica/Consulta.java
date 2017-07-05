@@ -1,4 +1,7 @@
 package logica;
+
+import java.util.Calendar;
+
 //Pendiente de programar por Maria
 public class Consulta extends Registro{
 	//subclase de la clase Registro
@@ -6,11 +9,11 @@ public class Consulta extends Registro{
 	private String diagnostico;
 	private String recomendaciones;
 	//constructor
-	public Consulta(int fec, String com, String med, String diag,String recom){
-		super (fec, com);//herencia??
-		this.medico=med;
-		this.diagnostico=diag;
-		this.recomendaciones=recom;
+	public Consulta(Calendar fecha, String comentario, String medico, String diagnostico,String recomendaciones){
+		super (fecha, comentario);
+		this.medico=medico;
+		this.diagnostico=diagnostico;
+		this.recomendaciones=recomendaciones;
 	}
 	public String getMedico() {
 		return medico;
@@ -29,6 +32,11 @@ public class Consulta extends Registro{
 	}
 	public void setRecomendaciones(String recomendaciones) {
 		this.recomendaciones = recomendaciones;
+	}
+	@Override
+	public String mostrarRegistro() {
+		
+		return null;
 	}
 }
 

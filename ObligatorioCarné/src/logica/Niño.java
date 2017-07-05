@@ -90,6 +90,6 @@ public class Niño {
 		this.cantRegistrosIngresados = cantRegistrosIngresados;
 	}
 	
-	
+	//ToString y Equals
 
 }

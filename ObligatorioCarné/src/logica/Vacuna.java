@@ -1,17 +1,17 @@
 package logica;
 
-public class Vacuna {
-	//Pendiente de programar por Mariana Presente
+import java.util.Calendar;
+
+public class Vacuna extends Registro{
+	
 	//Parametros
 	private String nombre;
 	private int dosis;
 	private boolean esObligatoria;
 	
-	//constructor //falta 2 parámetros correspondientes a la superclase
-
-	public Vacuna(String nombre, int dosis, boolean esObligatoria) 
+	public Vacuna(Calendar fecha, String comentario, String nombre, int dosis, boolean esObligatoria) 
 	{
-		super();
+		super(fecha,comentario);
 		this.nombre = nombre;
 		this.dosis = dosis;
 		this.esObligatoria = esObligatoria;
@@ -41,6 +41,12 @@ public class Vacuna {
 
 	public void setEsObligatoria(boolean esObligatoria) {
 		this.esObligatoria = esObligatoria;
+	}
+
+	@Override
+	public String mostrarRegistro() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }
