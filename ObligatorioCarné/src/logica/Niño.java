@@ -9,20 +9,19 @@ public class Niño {
 	private String servicioMedico;
 	private String medicoCabecera;
 	private boolean tieneFonasa;
-	private Registro registros;
-	private int cantRegistrosIngresados;
+
 
 	//contructor
-	public Niño(String nom,int doc,Calendar fecNac,String serMed,String medCab,boolean tieFon,Registro reg,int canRegIng)
+	public Niño(String nom,int doc,Calendar fecNac,String serMed,String medCab,boolean tieFon)
 		{
+			
 			nombre = nom;
 			documento = doc;
 			fechaNacimiento = fecNac;
 			servicioMedico = serMed;
 			medicoCabecera = medCab;
 			tieneFonasa = tieFon;
-			registros = reg;
-			cantRegistrosIngresados = canRegIng;
+
 		
 		}
 
@@ -74,22 +73,6 @@ public class Niño {
 		this.tieneFonasa = tieneFonasa;
 	}
 
-	public Registro getRegistros() {
-		return registros;
-	}
 
-	public void setRegistros(Registro registros) {
-		this.registros = registros;
-	}
-
-	public int getCantRegistrosIngresados() {
-		return cantRegistrosIngresados;
-	}
-
-	public void setCantRegistrosIngresados(int cantRegistrosIngresados) {
-		this.cantRegistrosIngresados = cantRegistrosIngresados;
-	}
 	
-	//ToString y Equals
-
 }
