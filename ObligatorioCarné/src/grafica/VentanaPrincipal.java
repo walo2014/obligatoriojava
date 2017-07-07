@@ -86,7 +86,8 @@ public class VentanaPrincipal extends JFrame {
 				int cantRegistros = Integer.parseInt(textCantRegistros.getText());
 				
 				//Defino la cantidad de niños
-				ColeccionNiños col = new ColeccionNiños(cantNiños);
+				int maxNiños = Integer.parseInt(textCantNiños.getText());
+				ColeccionNiños col = new ColeccionNiños();
 			}
 		});
 		btnAceptar.setBounds(359, 234, 89, 23);

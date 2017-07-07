@@ -113,9 +113,12 @@ public class AgregarNiño extends JFrame {
 				String medicoCabecera = textMedicoCabecera.getText();
 				boolean fonasa = chckbxSi.isSelected();
 				
-				Niño n = new Niño(nombre, documento, fechaNacimiento, servicioMedico, medicoCabecera, fonasa);
-				System.out.println(nombre + documento + fechaNacimiento + servicioMedico + medicoCabecera + fonasa);
-				coleccion.agregar(n);
+				Niño ni = new Niño(nombre, documento, fechaNacimiento, servicioMedico, medicoCabecera, fonasa);
+				//pruebo objeto niño
+				System.out.println(ni.getNombre() + ni.getDocumento() + ni.getFechaNacimiento() + ni.getServicioMedico() + ni.getMedicoCabecera() + ni.isTieneFonasa());
+				coleccion.agregar(ni);
+				
+				
 				JOptionPane.showMessageDialog(null, "El niño ha sido ingresado al sistema correctamente");
 				dispose();
 				

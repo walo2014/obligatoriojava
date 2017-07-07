@@ -1,39 +1,24 @@
 package logica;
 
 public class ColeccionNiños {
-	
-	
 	private Niño[] arreglo;
 	private int topeNiños;
 	
-	public ColeccionNiños(int maxNiños){
+	public ColeccionNiños(){
 					
-		arreglo = new Niño[maxNiños];
+		arreglo = new Niño[5];
 		topeNiños =0;		
 	}
 	
 	public void agregar(Niño n){
 		
 		arreglo[topeNiños] = n;
+		System.out.println("AGREGADO EL NIÑO "+ n.getNombre() +" en la posicion "+topeNiños);
+		
 		topeNiños++;
 		
 	}
 
-	public Niño[] getArreglo() {
-		return arreglo;
-	}
-
-	public void setArreglo(Niño[] arreglo) {
-		this.arreglo = arreglo;
-	}
-
-	public int getTopeNiños() {
-		return topeNiños;
-	}
-
-	public void setTopeNiños(int topeNiños) {
-		this.topeNiños = topeNiños;
-	}
 	
 	
 
