@@ -11,6 +11,8 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JCheckBox;
 import javax.swing.JButton;
+import com.toedter.calendar.JCalendar;
+import com.toedter.calendar.JDateChooser;
 
 public class AgregarNiño extends JFrame {
 
