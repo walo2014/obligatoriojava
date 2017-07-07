@@ -5,6 +5,12 @@ public class ColeccionNiños {
 	
 	private Niño[] arreglo;
 	private int topeNiños;
-	private int topeRegistros;
+	
+	public ColeccionNiños(int maxNiños){
+					
+		arreglo = new Niño[maxNiños];
+		topeNiños =0;
+		
+	}
 
 }
