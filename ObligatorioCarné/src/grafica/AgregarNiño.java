@@ -13,17 +13,28 @@ import javax.swing.JCheckBox;
 import javax.swing.JButton;
 import com.toedter.calendar.JCalendar;
 import com.toedter.calendar.JDateChooser;
+import com.toedter.calendar.demo.DateChooserPanel;
+
+import logica.Niño;
+
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
+import java.util.Calendar;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 public class AgregarNiño extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textNombre;
 	private JTextField textDocumento;
-	private JTextField textServicioMedico;
 	private JTextField textMedicoCabecera;
+	private JDateChooser calendario;
+	private JComboBox comboServicioMedico;
+	private JCheckBox chckbxSi;
 
 	/**
 	 * Launch the application.
@@ -84,22 +95,44 @@ public class AgregarNiño extends JFrame {
 		textDocumento.setBounds(120, 55, 151, 20);
 		textDocumento.setColumns(10);
 		
-		textServicioMedico = new JTextField();
-		textServicioMedico.setBounds(120, 109, 151, 20);
-		textServicioMedico.setColumns(10);
-		
 		textMedicoCabecera = new JTextField();
 		textMedicoCabecera.setBounds(120, 138, 151, 20);
 		textMedicoCabecera.setColumns(10);
 		
-		JCheckBox chckbxSi = new JCheckBox("Si");
+		chckbxSi = new JCheckBox("Si");
 		chckbxSi.setBounds(124, 159, 97, 23);
 		
 		JButton btnAgregar = new JButton("Agregar");
+		btnAgregar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Calendar fechaNacimiento = Calendar.getInstance();
+				
+				
+				String nombre = textNombre.getText();
+				String documento = textNombre.getText();
+				//Cargo variables con los datos de la fecha
+				int dia = calendario.getCalendar().get(Calendar.DAY_OF_MONTH);
+				int mes = calendario.getCalendar().get(Calendar.MONTH);
+				int año = calendario.getCalendar().get(Calendar.YEAR);				
+				fechaNacimiento.set(Calendar.DAY_OF_MONTH, dia);
+				fechaNacimiento.set(Calendar.MONTH, mes);
+				fechaNacimiento.set(Calendar.YEAR, año);
+				String servicioMedico = (String)comboServicioMedico.getSelectedItem();
+				String medicoCabecera = textMedicoCabecera.getText();
+				boolean fonasa = chckbxSi.isSelected();
+				
+				Niño n = new Niño(nombre, documento, fechaNacimiento, servicioMedico, medicoCabecera, fonasa);
+				
+				
+				
+				
+			}
+		});
 		btnAgregar.setBounds(182, 189, 89, 23);
 		
-		JDateChooser dateChooser = new JDateChooser();
-		dateChooser.setBounds(120, 81, 151, 20);
+		calendario = new JDateChooser();
+		calendario.setDateFormatString("dd-MM-yyyy");
+		calendario.setBounds(120, 81, 151, 20);
 		contentPane.setLayout(null);
 		contentPane.add(lblNombre);
 		contentPane.add(lblDocumento);
@@ -109,10 +142,14 @@ public class AgregarNiño extends JFrame {
 		contentPane.add(lblFonasa);
 		contentPane.add(textNombre);
 		contentPane.add(textDocumento);
-		contentPane.add(textServicioMedico);
 		contentPane.add(textMedicoCabecera);
 		contentPane.add(chckbxSi);
 		contentPane.add(btnAgregar);
-		contentPane.add(dateChooser);
+		contentPane.add(calendario);
+		
+		comboServicioMedico = new JComboBox();
+		comboServicioMedico.setModel(new DefaultComboBoxModel(new String[] {"", "ASOCIACI\u00D3N ESPA\u00D1OLA", "CASA DE GALICIA", "CASMU", "C\u00CDRCULO CAT\u00D3LICO", "COSEM", "CUDAM", "GREMCA", "HOSPITAL EVANG\u00C9LICO", "M\u00C9DICA URUGUAYA", "SMI", "UNIVERSAL", "BLUE CROSS & BLUE SHIELD (Seguro Privado)", "HOSPITAL BRIT\u00C1NICO (Seguro Privado)", "MEDICARE (Seguro Privado)", "MP (Seguro Privado)", "PRIM\u00C9DICA (Seguro Privado)", "SEGURO AMERICANO (Seguro Privado)", "SUMMUM (Seguro Privado)", "ASSE Montevideo", "OTRO"}));
+		comboServicioMedico.setBounds(120, 109, 151, 20);
+		contentPane.add(comboServicioMedico);
 	}
 }

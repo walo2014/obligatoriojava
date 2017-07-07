@@ -4,7 +4,7 @@ import java.util.Calendar;
 public class Niño {
 	//parametros
 	private String nombre;
-	private int documento;
+	private String documento;
 	private Calendar fechaNacimiento;
 	private String servicioMedico;
 	private String medicoCabecera;
@@ -12,7 +12,7 @@ public class Niño {
 
 
 	//contructor
-	public Niño(String nom,int doc,Calendar fecNac,String serMed,String medCab,boolean tieFon)
+	public Niño(String nom,String doc,Calendar fecNac,String serMed,String medCab,boolean tieFon)
 		{
 			
 			nombre = nom;
@@ -20,9 +20,7 @@ public class Niño {
 			fechaNacimiento = fecNac;
 			servicioMedico = serMed;
 			medicoCabecera = medCab;
-			tieneFonasa = tieFon;
-
-		
+			tieneFonasa = tieFon;		
 		}
 
 	public String getNombre() {
@@ -33,11 +31,11 @@ public class Niño {
 		this.nombre = nombre;
 	}
 
-	public int getDocumento() {
+	public String getDocumento() {
 		return documento;
 	}
 
-	public void setDocumento(int documento) {
+	public void setDocumento(String documento) {
 		this.documento = documento;
 	}
 

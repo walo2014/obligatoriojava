@@ -9,7 +9,11 @@ public class ColeccionNiños {
 	public ColeccionNiños(int maxNiños){
 					
 		arreglo = new Niño[maxNiños];
-		topeNiños =0;
+		topeNiños =0;		
+	}
+	
+	public void agregar(Niño n){
+		
 		
 	}
 
