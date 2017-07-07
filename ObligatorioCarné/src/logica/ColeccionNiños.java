@@ -1,7 +1,7 @@
 package logica;
 
 public class ColeccionNiños {
-	// Pendiente de programar en grupo
+	
 	
 	private Niño[] arreglo;
 	private int topeNiños;
@@ -14,7 +14,27 @@ public class ColeccionNiños {
 	
 	public void agregar(Niño n){
 		
+		arreglo[topeNiños] = n;
+		topeNiños++;
 		
 	}
+
+	public Niño[] getArreglo() {
+		return arreglo;
+	}
+
+	public void setArreglo(Niño[] arreglo) {
+		this.arreglo = arreglo;
+	}
+
+	public int getTopeNiños() {
+		return topeNiños;
+	}
+
+	public void setTopeNiños(int topeNiños) {
+		this.topeNiños = topeNiños;
+	}
+	
+	
 
 }

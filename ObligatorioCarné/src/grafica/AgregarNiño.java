@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JCheckBox;
@@ -15,6 +16,7 @@ import com.toedter.calendar.JCalendar;
 import com.toedter.calendar.JDateChooser;
 import com.toedter.calendar.demo.DateChooserPanel;
 
+import logica.ColeccionNiños;
 import logica.Niño;
 
 import javax.swing.GroupLayout;
@@ -35,27 +37,17 @@ public class AgregarNiño extends JFrame {
 	private JDateChooser calendario;
 	private JComboBox comboServicioMedico;
 	private JCheckBox chckbxSi;
+	private ColeccionNiños coleccion;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					AgregarNiño frame = new AgregarNiño();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
 	 */
-	public AgregarNiño() {
+	public AgregarNiño(ColeccionNiños col) {
+		this.coleccion = col;
 		setTitle("Agregar ni\u00F1o");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -109,7 +101,7 @@ public class AgregarNiño extends JFrame {
 				
 				
 				String nombre = textNombre.getText();
-				String documento = textNombre.getText();
+				String documento = textDocumento.getText();
 				//Cargo variables con los datos de la fecha
 				int dia = calendario.getCalendar().get(Calendar.DAY_OF_MONTH);
 				int mes = calendario.getCalendar().get(Calendar.MONTH);
@@ -122,8 +114,10 @@ public class AgregarNiño extends JFrame {
 				boolean fonasa = chckbxSi.isSelected();
 				
 				Niño n = new Niño(nombre, documento, fechaNacimiento, servicioMedico, medicoCabecera, fonasa);
-				
-				
+				System.out.println(nombre + documento + fechaNacimiento + servicioMedico + medicoCabecera + fonasa);
+				coleccion.agregar(n);
+				JOptionPane.showMessageDialog(null, "El niño ha sido ingresado al sistema correctamente");
+				dispose();
 				
 				
 			}
