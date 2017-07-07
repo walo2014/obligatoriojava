@@ -13,6 +13,9 @@ import javax.swing.JCheckBox;
 import javax.swing.JButton;
 import com.toedter.calendar.JCalendar;
 import com.toedter.calendar.JDateChooser;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class AgregarNiño extends JFrame {
 
@@ -48,64 +51,68 @@ public class AgregarNiño extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(null);
 		
 		JLabel lblNombre = new JLabel("Nombre:");
+		lblNombre.setBounds(15, 30, 103, 14);
 		lblNombre.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNombre.setBounds(10, 30, 103, 14);
-		contentPane.add(lblNombre);
 		
 		JLabel lblDocumento = new JLabel("Documento:");
+		lblDocumento.setBounds(15, 55, 103, 14);
 		lblDocumento.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblDocumento.setBounds(10, 55, 103, 14);
-		contentPane.add(lblDocumento);
 		
 		JLabel lblFechaDeNacimiento = new JLabel("Fecha de Nacimiento:");
+		lblFechaDeNacimiento.setBounds(15, 84, 103, 14);
 		lblFechaDeNacimiento.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblFechaDeNacimiento.setBounds(10, 80, 103, 14);
-		contentPane.add(lblFechaDeNacimiento);
 		
 		JLabel lblServicioMedico = new JLabel("Servicio Medico:");
+		lblServicioMedico.setBounds(15, 109, 103, 14);
 		lblServicioMedico.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblServicioMedico.setBounds(10, 105, 103, 14);
-		contentPane.add(lblServicioMedico);
 		
 		JLabel lblMedicoDeCabecera = new JLabel("Medico de Cabecera:");
+		lblMedicoDeCabecera.setBounds(15, 138, 103, 14);
 		lblMedicoDeCabecera.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblMedicoDeCabecera.setBounds(10, 130, 103, 14);
-		contentPane.add(lblMedicoDeCabecera);
 		
 		JLabel lblFonasa = new JLabel("Fonasa:");
+		lblFonasa.setBounds(15, 163, 103, 14);
 		lblFonasa.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblFonasa.setBounds(10, 159, 103, 14);
-		contentPane.add(lblFonasa);
 		
 		textNombre = new JTextField();
-		textNombre.setBounds(121, 27, 151, 20);
-		contentPane.add(textNombre);
+		textNombre.setBounds(120, 30, 151, 20);
 		textNombre.setColumns(10);
 		
 		textDocumento = new JTextField();
-		textDocumento.setBounds(121, 52, 151, 20);
-		contentPane.add(textDocumento);
+		textDocumento.setBounds(120, 55, 151, 20);
 		textDocumento.setColumns(10);
 		
 		textServicioMedico = new JTextField();
-		textServicioMedico.setBounds(123, 102, 149, 20);
-		contentPane.add(textServicioMedico);
+		textServicioMedico.setBounds(120, 109, 151, 20);
 		textServicioMedico.setColumns(10);
 		
 		textMedicoCabecera = new JTextField();
-		textMedicoCabecera.setBounds(123, 127, 149, 20);
-		contentPane.add(textMedicoCabecera);
+		textMedicoCabecera.setBounds(120, 138, 151, 20);
 		textMedicoCabecera.setColumns(10);
 		
 		JCheckBox chckbxSi = new JCheckBox("Si");
-		chckbxSi.setBounds(119, 155, 97, 23);
-		contentPane.add(chckbxSi);
+		chckbxSi.setBounds(124, 159, 97, 23);
 		
 		JButton btnAgregar = new JButton("Agregar");
-		btnAgregar.setBounds(183, 185, 89, 23);
+		btnAgregar.setBounds(182, 189, 89, 23);
+		
+		JDateChooser dateChooser = new JDateChooser();
+		dateChooser.setBounds(120, 81, 151, 20);
+		contentPane.setLayout(null);
+		contentPane.add(lblNombre);
+		contentPane.add(lblDocumento);
+		contentPane.add(lblFechaDeNacimiento);
+		contentPane.add(lblServicioMedico);
+		contentPane.add(lblMedicoDeCabecera);
+		contentPane.add(lblFonasa);
+		contentPane.add(textNombre);
+		contentPane.add(textDocumento);
+		contentPane.add(textServicioMedico);
+		contentPane.add(textMedicoCabecera);
+		contentPane.add(chckbxSi);
 		contentPane.add(btnAgregar);
+		contentPane.add(dateChooser);
 	}
 }
