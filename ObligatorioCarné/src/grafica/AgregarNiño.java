@@ -34,10 +34,12 @@ public class AgregarNiño extends JFrame {
 	private JTextField textNombre;
 	private JTextField textDocumento;
 	private JTextField textMedicoCabecera;
-	private JDateChooser calendario;
 	private JComboBox comboServicioMedico;
 	private JCheckBox chckbxSi;
 	private ColeccionNiños coleccion;
+	private JTextField textDia;
+	private JTextField textMes;
+	private JTextField textAño;
 
 	/**
 	 * Launch the application.
@@ -103,9 +105,9 @@ public class AgregarNiño extends JFrame {
 				String nombre = textNombre.getText();
 				String documento = textDocumento.getText();
 				//Cargo variables con los datos de la fecha
-				int dia = calendario.getCalendar().get(Calendar.DAY_OF_MONTH);
-				int mes = calendario.getCalendar().get(Calendar.MONTH);
-				int año = calendario.getCalendar().get(Calendar.YEAR);				
+				int dia = Integer.parseInt(textDia.getText());
+				int mes = Integer.parseInt(textMes.getText());
+				int año = Integer.parseInt(textAño.getText());				
 				fechaNacimiento.set(Calendar.DAY_OF_MONTH, dia);
 				fechaNacimiento.set(Calendar.MONTH, mes);
 				fechaNacimiento.set(Calendar.YEAR, año);
@@ -126,10 +128,6 @@ public class AgregarNiño extends JFrame {
 			}
 		});
 		btnAgregar.setBounds(182, 189, 89, 23);
-		
-		calendario = new JDateChooser();
-		calendario.setDateFormatString("dd-MM-yyyy");
-		calendario.setBounds(120, 81, 151, 20);
 		contentPane.setLayout(null);
 		contentPane.add(lblNombre);
 		contentPane.add(lblDocumento);
@@ -142,11 +140,25 @@ public class AgregarNiño extends JFrame {
 		contentPane.add(textMedicoCabecera);
 		contentPane.add(chckbxSi);
 		contentPane.add(btnAgregar);
-		contentPane.add(calendario);
 		
 		comboServicioMedico = new JComboBox();
 		comboServicioMedico.setModel(new DefaultComboBoxModel(new String[] {"", "ASOCIACI\u00D3N ESPA\u00D1OLA", "CASA DE GALICIA", "CASMU", "C\u00CDRCULO CAT\u00D3LICO", "COSEM", "CUDAM", "GREMCA", "HOSPITAL EVANG\u00C9LICO", "M\u00C9DICA URUGUAYA", "SMI", "UNIVERSAL", "BLUE CROSS & BLUE SHIELD (Seguro Privado)", "HOSPITAL BRIT\u00C1NICO (Seguro Privado)", "MEDICARE (Seguro Privado)", "MP (Seguro Privado)", "PRIM\u00C9DICA (Seguro Privado)", "SEGURO AMERICANO (Seguro Privado)", "SUMMUM (Seguro Privado)", "ASSE Montevideo", "OTRO"}));
 		comboServicioMedico.setBounds(120, 109, 151, 20);
 		contentPane.add(comboServicioMedico);
+		
+		textDia = new JTextField();
+		textDia.setBounds(120, 81, 32, 20);
+		contentPane.add(textDia);
+		textDia.setColumns(10);
+		
+		textMes = new JTextField();
+		textMes.setBounds(162, 81, 32, 20);
+		contentPane.add(textMes);
+		textMes.setColumns(10);
+		
+		textAño = new JTextField();
+		textAño.setBounds(204, 81, 67, 20);
+		contentPane.add(textAño);
+		textAño.setColumns(10);
 	}
 }
