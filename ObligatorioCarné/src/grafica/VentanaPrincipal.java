@@ -25,16 +25,24 @@ public class VentanaPrincipal extends JFrame {
 
 	private JPanel contentPane;
 	private ColeccionNiños coleccion;
-	private JTextField textCantNiños;
-	private JTextField textCantRegistros;
 	
 
 	/**
 	 * Create the frame.
 	 */
 	public VentanaPrincipal() {
-		coleccion = new ColeccionNiños();
+		coleccion = new ColeccionNiños();	
 		
+		//Consulto si la cantidad de niños es mayor a 0
+		/*
+		int cantNiños = coleccion.getMaxNiños();
+		if (cantNiños == 0)
+		{
+		
+			Configuracion conf = new Configuracion();
+			conf.setVisible(true);					
+		}
+		*/
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 474, 328);
 		
@@ -61,48 +69,6 @@ public class VentanaPrincipal extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel label = new JLabel("Cantidad maxima de ni\u00F1os:");
-		label.setBounds(241, 185, 151, 14);
-		contentPane.add(label);
-		label.setHorizontalAlignment(SwingConstants.RIGHT);
-		
-		JLabel label_1 = new JLabel("Cantidad maxima de registros:");
-		label_1.setBounds(241, 213, 151, 14);
-		contentPane.add(label_1);
-		label_1.setHorizontalAlignment(SwingConstants.RIGHT);
-		
-		textCantNiños = new JTextField();
-		textCantNiños.setBounds(399, 182, 49, 20);
-		contentPane.add(textCantNiños);
-		textCantNiños.setColumns(10);
-		
-		textCantRegistros = new JTextField();
-		textCantRegistros.setBounds(399, 209, 49, 20);
-		contentPane.add(textCantRegistros);
-		textCantRegistros.setColumns(10);
-		
-		JButton btnAceptar = new JButton("Aceptar");
-		btnAceptar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				config();
-			}
-		});
-		btnAceptar.setBounds(359, 234, 89, 23);
-		contentPane.add(btnAceptar);
-		
-		JLabel lblConfiguracion = new JLabel("Configuraci\u00F3n:");
-		lblConfiguracion.setHorizontalAlignment(SwingConstants.CENTER);
-		lblConfiguracion.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblConfiguracion.setBounds(240, 164, 208, 14);
-		contentPane.add(lblConfiguracion);
-	}
-	
-	private void config(){
-		int cantNiños = Integer.parseInt(textCantNiños.getText());
-		int cantRegistros = Integer.parseInt(textCantRegistros.getText());
-		
-		//Defino la cantidad de niños
-		int maxNiños = Integer.parseInt(textCantNiños.getText());
-		coleccion = new ColeccionNiños();
+
 	}
 }

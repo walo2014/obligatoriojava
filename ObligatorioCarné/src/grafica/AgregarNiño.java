@@ -119,9 +119,7 @@ public class AgregarNiño extends JFrame {
 				//pruebo objeto niño
 				System.out.println(ni.getNombre() + ni.getDocumento() + ni.getFechaNacimiento() + ni.getServicioMedico() + ni.getMedicoCabecera() + ni.isTieneFonasa());
 				coleccion.agregar(ni);
-				
-				
-				JOptionPane.showMessageDialog(null, "El niño ha sido ingresado al sistema correctamente");
+								
 				dispose();
 				
 				
