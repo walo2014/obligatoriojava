@@ -82,12 +82,7 @@ public class VentanaPrincipal extends JFrame {
 		JButton btnAceptar = new JButton("Aceptar");
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int cantNiños = Integer.parseInt(textCantNiños.getText());
-				int cantRegistros = Integer.parseInt(textCantRegistros.getText());
-				
-				//Defino la cantidad de niños
-				int maxNiños = Integer.parseInt(textCantNiños.getText());
-				ColeccionNiños col = new ColeccionNiños();
+				config();
 			}
 		});
 		btnAceptar.setBounds(359, 234, 89, 23);
@@ -98,5 +93,14 @@ public class VentanaPrincipal extends JFrame {
 		lblConfiguracion.setFont(new Font("Tahoma", Font.BOLD, 13));
 		lblConfiguracion.setBounds(240, 164, 208, 14);
 		contentPane.add(lblConfiguracion);
+	}
+	
+	private void config(){
+		int cantNiños = Integer.parseInt(textCantNiños.getText());
+		int cantRegistros = Integer.parseInt(textCantRegistros.getText());
+		
+		//Defino la cantidad de niños
+		int maxNiños = Integer.parseInt(textCantNiños.getText());
+		coleccion = new ColeccionNiños();
 	}
 }
