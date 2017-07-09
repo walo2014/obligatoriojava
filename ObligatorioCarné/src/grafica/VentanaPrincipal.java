@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 
 import logica.ColeccionNiños;
 
+
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
@@ -26,12 +27,13 @@ public class VentanaPrincipal extends JFrame {
 	private ColeccionNiños coleccion;
 	private JTextField textCantNiños;
 	private JTextField textCantRegistros;
-
+	
 
 	/**
 	 * Create the frame.
 	 */
 	public VentanaPrincipal() {
+		coleccion = new ColeccionNiños();
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 474, 328);
