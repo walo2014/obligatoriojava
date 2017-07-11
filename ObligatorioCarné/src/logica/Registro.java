@@ -1,4 +1,5 @@
 package logica;
+//metodo coleccion de registros ver vacuna consul control
 import java.util.Calendar;
 //Pendiente de programar
 public abstract class Registro {
