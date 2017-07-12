@@ -191,10 +191,13 @@ public class AgregarNiño extends JFrame {
 
 	protected void limpiar() {
 		textAño.setText("");
+		textMes.setText("");
 		textDia.setText("");
 		textDocumento.setText("");
 		textMedicoCabecera.setText("");
 		textNombre.setText("");
+		comboServicioMedico.setSelectedIndex(0);
+		
 		
 		
 	}
