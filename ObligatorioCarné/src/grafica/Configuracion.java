@@ -67,7 +67,8 @@ public class Configuracion extends JFrame {
 
 	protected void ejecutarAceptar() {
 		ColeccionNiños coleccion = new ColeccionNiños();
-
+		try
+		{
 		int maxNiños = Integer.parseInt(textCantMaxNiños.getText());
 		int maxRegistros = Integer.parseInt(textCantMaxRegistro.getText());
 
@@ -88,6 +89,12 @@ public class Configuracion extends JFrame {
 		else{
 			JOptionPane.showMessageDialog(this, "El maximo niños tiene que ser mayor a 0");
 		}
-
+		}catch (NumberFormatException e)
+		{
+			JOptionPane.showMessageDialog(this, "Los datos deben ser numericos");
+			textCantMaxNiños.setText("");
+			textCantMaxRegistro.setText("");
+			
+		}
 	}
 }
