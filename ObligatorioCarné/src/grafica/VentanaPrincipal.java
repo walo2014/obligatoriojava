@@ -30,8 +30,8 @@ public class VentanaPrincipal extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public VentanaPrincipal() {
-		coleccion = new ColeccionNiños();	
+	public VentanaPrincipal(ColeccionNiños coleccion) {
+		this.coleccion = coleccion;
 		
 		//Consulto si la cantidad de niños es mayor a 0
 		/*
@@ -57,9 +57,11 @@ public class VentanaPrincipal extends JFrame {
 		JMenuItem mntmAgregarNio = new JMenuItem("Agregar Ni\u00F1o");
 		mntmAgregarNio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-								
-				AgregarNiño ventana = new AgregarNiño(coleccion);
-				ventana.setVisible(true);
+								//Cambio de posicion
+				/*AgregarNiño ventana = new AgregarNiño(coleccion);
+				ventana.setVisible(true);*/
+				
+				mostrarAgregarNiño();
 				
 			}
 		});
@@ -70,5 +72,12 @@ public class VentanaPrincipal extends JFrame {
 		contentPane.setLayout(null);
 		
 
+	}
+
+
+	protected void mostrarAgregarNiño() {
+		AgregarNiño ventana = new AgregarNiño(coleccion);
+		ventana.setVisible(true);
+		
 	}
 }

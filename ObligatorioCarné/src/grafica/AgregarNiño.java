@@ -50,7 +50,7 @@ public class AgregarNiño extends JFrame {
 		this.coleccion = col;
 		setTitle("Agregar ni\u00F1o");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 418, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -94,10 +94,12 @@ public class AgregarNiño extends JFrame {
 		chckbxSi = new JCheckBox("Si");
 		chckbxSi.setBounds(124, 159, 97, 23);
 		
-		JButton btnAgregar = new JButton("Agregar");
+		JButton btnAgregar = new JButton("Aceptar");
 		btnAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Calendar fechaNacimiento = Calendar.getInstance();
+				
+				//Movi de lugar
+				/*Calendar fechaNacimiento = Calendar.getInstance();
 				
 				
 				String nombre = textNombre.getText();
@@ -113,17 +115,24 @@ public class AgregarNiño extends JFrame {
 				String medicoCabecera = textMedicoCabecera.getText();
 				boolean fonasa = chckbxSi.isSelected();
 				
-				Niño ni = new Niño(nombre, documento, fechaNacimiento, servicioMedico, medicoCabecera, fonasa);
+				Niño ni = new Niño(nombre, documento, fechaNacimiento, servicioMedico, medicoCabecera, fonasa,coleccion.getMaxRegistro());
 				//pruebo objeto niño
-				System.out.println(ni.getNombre() + ni.getDocumento() + ni.getFechaNacimiento() + ni.getServicioMedico() + ni.getMedicoCabecera() + ni.isTieneFonasa());
-				coleccion.agregar(ni);
-								
-				dispose();
+				//System.out.println(ni.getNombre() + ni.getDocumento() + ni.getFechaNacimiento() + ni.getServicioMedico() + ni.getMedicoCabecera() + ni.isTieneFonasa());
+				boolean valido=coleccion.agregar(ni);
+				if(valido)
+				{
+					//Lo mismo que hiciste en la ColeccionNiños pero en la interfaz grafica
+					JOptionPane.showMessageDialog(null, "El niño ha sido ingresado al sistema correctamente");
+				}
+				*/
+				boolean sePudo=guardarNiño();
+				if(sePudo)
+					dispose();
 				
 				
 			}
 		});
-		btnAgregar.setBounds(182, 189, 89, 23);
+		btnAgregar.setBounds(177, 208, 89, 23);
 		contentPane.setLayout(null);
 		contentPane.add(lblNombre);
 		contentPane.add(lblDocumento);
@@ -156,5 +165,71 @@ public class AgregarNiño extends JFrame {
 		textAño.setBounds(204, 81, 67, 20);
 		contentPane.add(textAño);
 		textAño.setColumns(10);
+		
+		JButton btnNewButton = new JButton("Aplicar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				boolean sePudo=guardarNiño();
+				if(sePudo)
+					limpiar();
+			}
+		});
+		btnNewButton.setBounds(289, 208, 89, 23);
+		contentPane.add(btnNewButton);
+		
+		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				dispose();
+			}
+		});
+		btnCancelar.setBounds(63, 208, 89, 23);
+		contentPane.add(btnCancelar);
+	}
+
+	protected void limpiar() {
+		textAño.setText("");
+		textDia.setText("");
+		textDocumento.setText("");
+		textMedicoCabecera.setText("");
+		textNombre.setText("");
+		
+		
+	}
+
+	protected boolean guardarNiño() {
+		Calendar fechaNacimiento = Calendar.getInstance();
+		
+		
+		String nombre = textNombre.getText();
+		String documento = textDocumento.getText();
+		//Cargo variables con los datos de la fecha
+		int dia = Integer.parseInt(textDia.getText());
+		int mes = Integer.parseInt(textMes.getText());
+		int año = Integer.parseInt(textAño.getText());				
+		fechaNacimiento.set(Calendar.DAY_OF_MONTH, dia);
+		fechaNacimiento.set(Calendar.MONTH, mes);
+		fechaNacimiento.set(Calendar.YEAR, año);
+		String servicioMedico = (String)comboServicioMedico.getSelectedItem();
+		String medicoCabecera = textMedicoCabecera.getText();
+		boolean fonasa = chckbxSi.isSelected();
+		
+		Niño ni = new Niño(nombre, documento, fechaNacimiento, servicioMedico, medicoCabecera, fonasa,coleccion.getMaxRegistro());
+		//pruebo objeto niño
+		//System.out.println(ni.getNombre() + ni.getDocumento() + ni.getFechaNacimiento() + ni.getServicioMedico() + ni.getMedicoCabecera() + ni.isTieneFonasa());
+		boolean valido=coleccion.agregar(ni);
+		if(valido)
+		{
+			//Lo mismo que hiciste en la ColeccionNiños pero en la interfaz grafica
+			JOptionPane.showMessageDialog(null, "El niño ha sido ingresado al sistema correctamente");
+			return true;
+		}
+		else{
+			JOptionPane.showMessageDialog(null, "Ya no puede ingresar mas niños al sistema","ERROR" ,JOptionPane.ERROR_MESSAGE);
+			return false;
+		}
+		
 	}
 }

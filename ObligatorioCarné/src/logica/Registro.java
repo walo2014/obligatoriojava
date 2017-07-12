@@ -3,6 +3,7 @@ package logica;
 import java.util.Calendar;
 //Pendiente de programar
 public abstract class Registro {
+	
 	private Calendar fecha;//verificar si es int??
 	private String comentario;// debe ir en mayuscula es mas apropiado??
 	
@@ -25,5 +26,7 @@ public abstract class Registro {
 		this.comentario = comentario;
 	}
 	
-	public abstract String mostrarRegistro();
+	public  String mostrarRegistro(){
+		return "Fecha :"+fecha.toString()+" Comentario : "+comentario;
+	}
 }

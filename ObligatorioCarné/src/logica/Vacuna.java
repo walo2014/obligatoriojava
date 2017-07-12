@@ -47,8 +47,10 @@ public class Vacuna extends Registro{
 
 	@Override
 	public String mostrarRegistro() {
-		// TODO Auto-generated method stub
-		return null;
+		String obligatorio=" no es obligatorio";
+		if(esObligatoria)
+			obligatorio=" es obligatorio";
+		return super.mostrarRegistro()+" Nombre : "+this.nombre+" Dosis : "+this.dosis+ "La vacuna"+obligatorio;
 	}
 	
 }

@@ -10,9 +10,11 @@ public class Niño {
 	private String medicoCabecera;
 	private boolean tieneFonasa;
 
+	private Registro[] registros; 
+	private int tope;
 
 	//contructor
-	public Niño(String nom,String doc,Calendar fecNac,String serMed,String medCab,boolean tieFon)
+	public Niño(String nom,String doc,Calendar fecNac,String serMed,String medCab,boolean tieFon,int cantidadRegistro)
 		{
 			
 			nombre = nom;
@@ -20,7 +22,9 @@ public class Niño {
 			fechaNacimiento = fecNac;
 			servicioMedico = serMed;
 			medicoCabecera = medCab;
-			tieneFonasa = tieFon;		
+			tieneFonasa = tieFon;
+			registros=new Registro[cantidadRegistro];
+			tope=0;
 		}
 
 	public String getNombre() {
@@ -71,6 +75,17 @@ public class Niño {
 		this.tieneFonasa = tieneFonasa;
 	}
 
-
+	//Recuperar y mostrar en el futuro registro
+	
+	public boolean agregar(Registro registro){
+		boolean guardo=false;
+		
+		if(tope<registros.length){
+			registros[tope]=registro;
+			guardo=true;
+			tope++;
+		}
+		return guardo;
+	}
 	
 }
