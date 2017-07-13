@@ -15,6 +15,10 @@ import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
 import java.awt.Dimension;
 import javax.swing.JScrollBar;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.SwingConstants;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class VentanaVacuna extends JFrame {
 
@@ -49,11 +53,13 @@ public class VentanaVacuna extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNiño = new JLabel("Ni\u00F1o:");
-		lblNiño.setBounds(20, 29, 76, 14);
+		lblNiño.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblNiño.setBounds(10, 29, 44, 14);
 		contentPane.add(lblNiño);
 		
 		JLabel lblNewLabel_1 = new JLabel("Vacuna:");
-		lblNewLabel_1.setBounds(20, 67, 53, 14);
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblNewLabel_1.setBounds(10, 67, 44, 14);
 		contentPane.add(lblNewLabel_1);
 		
 		JComboBox comboNiño = new JComboBox();
@@ -61,18 +67,36 @@ public class VentanaVacuna extends JFrame {
 		contentPane.add(comboNiño);
 		
 		JComboBox comboVacuna = new JComboBox();
-		comboVacuna.setBounds(63, 64, 122, 20);
+		comboVacuna.setBounds(64, 64, 122, 20);
 		contentPane.add(comboVacuna);
 		
-		JButton btnAceptar = new JButton("Vacunar");
-		btnAceptar.setBounds(171, 227, 89, 23);
+		JButton btnAceptar = new JButton("Aplicar");
+		btnAceptar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnAceptar.setBounds(241, 227, 89, 23);
 		contentPane.add(btnAceptar);
 		
 		JTextArea txtrFdvsf = new JTextArea();
 		txtrFdvsf.setSize(new Dimension(3, 3));
 		txtrFdvsf.setRows(1);
 		txtrFdvsf.setLineWrap(true);
-		txtrFdvsf.setBounds(63, 105, 267, 67);
+		txtrFdvsf.setBounds(63, 149, 267, 67);
 		contentPane.add(txtrFdvsf);
+		
+		JComboBox comboDosis = new JComboBox();
+		comboDosis.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9"}));
+		comboDosis.setBounds(63, 100, 122, 20);
+		contentPane.add(comboDosis);
+		
+		JLabel lblDosis = new JLabel("Dosis:");
+		lblDosis.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblDosis.setBounds(8, 103, 46, 14);
+		contentPane.add(lblDosis);
+		
+		JLabel lblComentarios = new JLabel("Comentarios:");
+		lblComentarios.setBounds(63, 131, 112, 14);
+		contentPane.add(lblComentarios);
 	}
 }

@@ -9,16 +9,19 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JButton;
 
 public class VentanaControl extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField text_nombre;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
+	private JTextField textPeso;
+	private JTextField textAltura;
+	private JComboBox comboNiño;
+	private JLabel lblNio;
+	private JTextArea textArea;
+	private JButton btnAplicar;
 
 	/**
 	 * Launch the application.
@@ -48,58 +51,42 @@ public class VentanaControl extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNombre = new JLabel("Nombre:");
-		lblNombre.setBounds(10, 26, 46, 14);
-		contentPane.add(lblNombre);
-		
-		JLabel lblEdad = new JLabel("Edad:");
-		lblEdad.setBounds(10, 52, 46, 14);
-		contentPane.add(lblEdad);
-		
 		JLabel lblPeso = new JLabel("Peso:");
-		lblPeso.setBounds(10, 86, 46, 14);
+		lblPeso.setBounds(10, 70, 46, 14);
 		contentPane.add(lblPeso);
 		
 		JLabel lblAltura = new JLabel("Altura:");
-		lblAltura.setBounds(10, 111, 46, 14);
+		lblAltura.setBounds(10, 95, 46, 14);
 		contentPane.add(lblAltura);
 		
-		text_nombre = new JTextField();
-		text_nombre.setBounds(76, 23, 86, 20);
-		contentPane.add(text_nombre);
-		text_nombre.setColumns(10);
+		textPeso = new JTextField();
+		textPeso.setBounds(76, 67, 86, 20);
+		contentPane.add(textPeso);
+		textPeso.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(76, 49, 86, 20);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
-		
-		textField_2 = new JTextField();
-		textField_2.setBounds(76, 83, 86, 20);
-		contentPane.add(textField_2);
-		textField_2.setColumns(10);
-		
-		textField_3 = new JTextField();
-		textField_3.setBounds(76, 108, 86, 20);
-		contentPane.add(textField_3);
-		textField_3.setColumns(10);
-		
-		JLabel lblFecha = new JLabel("Fecha:");
-		lblFecha.setBounds(10, 148, 46, 14);
-		contentPane.add(lblFecha);
+		textAltura = new JTextField();
+		textAltura.setBounds(76, 92, 86, 20);
+		contentPane.add(textAltura);
+		textAltura.setColumns(10);
 		
 		JLabel lblComentarios = new JLabel("Comentarios:");
-		lblComentarios.setBounds(10, 173, 74, 14);
+		lblComentarios.setBounds(76, 123, 74, 14);
 		contentPane.add(lblComentarios);
 		
-		textField_4 = new JTextField();
-		textField_4.setBounds(76, 145, 86, 20);
-		contentPane.add(textField_4);
-		textField_4.setColumns(10);
+		comboNiño = new JComboBox();
+		comboNiño.setBounds(76, 36, 86, 20);
+		contentPane.add(comboNiño);
 		
-		textField_5 = new JTextField();
-		textField_5.setBounds(76, 170, 86, 20);
-		contentPane.add(textField_5);
-		textField_5.setColumns(10);
+		lblNio = new JLabel("Ni\u00F1o:");
+		lblNio.setBounds(10, 39, 46, 14);
+		contentPane.add(lblNio);
+		
+		textArea = new JTextArea();
+		textArea.setBounds(76, 139, 179, 75);
+		contentPane.add(textArea);
+		
+		btnAplicar = new JButton("Aplicar");
+		btnAplicar.setBounds(166, 225, 89, 23);
+		contentPane.add(btnAplicar);
 	}
 }
