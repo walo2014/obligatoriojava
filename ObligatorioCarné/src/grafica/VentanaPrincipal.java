@@ -66,6 +66,24 @@ public class VentanaPrincipal extends JFrame {
 			}
 		});
 		mnNios.add(mntmAgregarNio);
+		
+		JMenuItem mntmVerNios = new JMenuItem("Ver Ni\u00F1os");
+		mnNios.add(mntmVerNios);
+		
+		JMenu mnRegistros = new JMenu("Registros");
+		menuBar.add(mnRegistros);
+		
+		JMenuItem mntmVerNios_1 = new JMenuItem("Ver Registros Ni\u00F1os");
+		mnRegistros.add(mntmVerNios_1);
+		
+		JMenuItem mntmVacunarNio = new JMenuItem("Vacunar Ni\u00F1o");
+		mnRegistros.add(mntmVacunarNio);
+		
+		JMenuItem mntmConsultaNio = new JMenuItem("Consulta Ni\u00F1o");
+		mnRegistros.add(mntmConsultaNio);
+		
+		JMenuItem mntmControl = new JMenuItem("Control Ni\u00F1o");
+		mnRegistros.add(mntmControl);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
