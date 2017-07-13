@@ -20,6 +20,8 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Font;
+import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
 
 public class VentanaPrincipal extends JFrame {
 
