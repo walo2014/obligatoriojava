@@ -67,6 +67,8 @@ public class Configuracion extends JFrame {
 
 	protected void ejecutarAceptar() {
 		ColeccionNiños coleccion = new ColeccionNiños();
+		
+		
 		try
 		{
 		int maxNiños = Integer.parseInt(textCantMaxNiños.getText());
@@ -82,6 +84,7 @@ public class Configuracion extends JFrame {
 				VentanaPrincipal ventana = new VentanaPrincipal(coleccion);
 				ventana.setVisible(true);
 				this.setVisible(false);
+				
 			}
 			else{
 				JOptionPane.showMessageDialog(this, "El maximo registro tiene que ser mayor a 0");
