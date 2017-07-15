@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import logica.ColeccionNiños;
+
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
@@ -23,6 +26,7 @@ import java.awt.event.ActionEvent;
 public class VentanaVacuna extends JFrame {
 
 	private JPanel contentPane;
+	private JComboBox comboNiño;
 
 	/**
 	 * Launch the application.
@@ -62,7 +66,7 @@ public class VentanaVacuna extends JFrame {
 		lblNewLabel_1.setBounds(10, 67, 44, 14);
 		contentPane.add(lblNewLabel_1);
 		
-		JComboBox comboNiño = new JComboBox();
+		comboNiño = new JComboBox();
 		comboNiño.setBounds(63, 26, 122, 20);
 		contentPane.add(comboNiño);
 		
@@ -99,4 +103,6 @@ public class VentanaVacuna extends JFrame {
 		lblComentarios.setBounds(63, 131, 112, 14);
 		contentPane.add(lblComentarios);
 	}
+	
+	
 }

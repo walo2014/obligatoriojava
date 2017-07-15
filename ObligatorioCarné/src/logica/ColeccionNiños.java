@@ -38,7 +38,15 @@ public class ColeccionNiños {
 		}
 	}
 	
-
+	public Niño[] listarNiños(){
+		Niño listado[] = null;
+		
+		for (int i =0;i < topeNiños;i++){
+			listado[i] = arreglo[i];
+		}
+		return listado;
+		
+	}
 
 	public int getMaxNiños() {
 		return maxNiños;
