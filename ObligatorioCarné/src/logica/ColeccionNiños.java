@@ -44,7 +44,7 @@ public class ColeccionNiños {
 		for(int i = 0; i< topeNiños; i++)
 		{
 			lista[i] = arreglo[i].getNombre();
-			System.out.println(lista[i] + " posicion "+i);
+			System.out.println(lista[i]);
 		}
 		return lista;
 	}

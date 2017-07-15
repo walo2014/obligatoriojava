@@ -19,6 +19,7 @@ import javax.swing.JScrollPane;
 import java.awt.Dimension;
 import javax.swing.JScrollBar;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -89,12 +90,18 @@ public class VentanaVacuna extends JFrame {
 		lblComentarios.setBounds(63, 131, 112, 14);
 		contentPane.add(lblComentarios);
 		
-	for(int i = 0;i < coleccion.getMaxNiños();i++){
-		comboNiño.addItem(coleccion.listar());
+		//Cargar combobox de niños
+		String[] datos = coleccion.listar();
+		DefaultListModel< String> modelo = new DefaultListModel<String>();
+		for(int i = 0; i< datos.length; i++)
+		{			
+			//modelo.addElement(datos[i]);
+			comboNiño.addItem(datos[i].toString());
+		}
 	}
 		
 		
-	}
+	
 	
 	
 }
