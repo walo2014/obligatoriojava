@@ -79,12 +79,30 @@ public class VentanaPrincipal extends JFrame {
 		mnRegistros.add(mntmVerNios_1);
 		
 		JMenuItem mntmVacunarNio = new JMenuItem("Vacunar Ni\u00F1o");
+		mntmVacunarNio.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				VentanaVacuna ventVacuna = new VentanaVacuna();
+				ventVacuna.setVisible(true);
+			}
+		});
 		mnRegistros.add(mntmVacunarNio);
 		
 		JMenuItem mntmConsultaNio = new JMenuItem("Consulta Ni\u00F1o");
+		mntmConsultaNio.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				VentanaConsulta ventConsulta = new VentanaConsulta();
+				ventConsulta.setVisible(true);
+			}
+		});
 		mnRegistros.add(mntmConsultaNio);
 		
 		JMenuItem mntmControl = new JMenuItem("Control Ni\u00F1o");
+		mntmControl.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				VentanaControl ventControl = new VentanaControl();
+				ventControl.setVisible(true);
+			}
+		});
 		mnRegistros.add(mntmControl);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

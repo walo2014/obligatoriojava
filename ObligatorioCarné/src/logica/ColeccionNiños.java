@@ -41,6 +41,20 @@ public class ColeccionNiños {
 			return true;
 		}
 	}
+	
+	public String[] listarNiños(){
+		
+				{
+					String[]  listaNiños = new String[topeNiños] ;
+					for(int i = 0; i< topeNiños; i++)
+					{
+						listaNiños[i] = arreglo[i].getNombre();
+						System.out.println(listaNiños[i] + " posicion "+i);
+					}
+					return listaNiños;
+		}
+		
+	}
 
 	public int getMaxNiños() {
 		return maxNiños;

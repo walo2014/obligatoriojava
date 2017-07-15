@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.JButton;
 
 public class VentanaConsulta extends JFrame {
 
@@ -37,7 +38,7 @@ public class VentanaConsulta extends JFrame {
 	 */
 	public VentanaConsulta() {
 		setTitle("Consulta");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -70,6 +71,9 @@ public class VentanaConsulta extends JFrame {
 		textField_2.setBounds(128, 103, 117, 20);
 		contentPane.add(textField_2);
 		textField_2.setColumns(10);
+		
+		JButton btnAplicar = new JButton("Aplicar");
+		btnAplicar.setBounds(156, 134, 89, 23);
+		contentPane.add(btnAplicar);
 	}
-
 }
