@@ -35,9 +35,9 @@ public class AgregarNiño extends JFrame {
 	private JComboBox comboServicioMedico;
 	private JCheckBox chckbxSi;
 	private ColeccionNiños coleccion;
-	private JTextField textDia;
-	private JTextField textMes;
-	private JTextField textAño;
+	private JComboBox comboDia;
+	private JComboBox comboMes;
+	private JComboBox comboAño;
 
 	/**
 	 * Launch the application.
@@ -68,11 +68,11 @@ public class AgregarNiño extends JFrame {
 		lblFechaDeNacimiento.setHorizontalAlignment(SwingConstants.RIGHT);
 		
 		JLabel lblServicioMedico = new JLabel("Servicio Medico:");
-		lblServicioMedico.setBounds(15, 109, 103, 14);
+		lblServicioMedico.setBounds(0, 109, 114, 14);
 		lblServicioMedico.setHorizontalAlignment(SwingConstants.RIGHT);
 		
 		JLabel lblMedicoDeCabecera = new JLabel("Medico de Cabecera:");
-		lblMedicoDeCabecera.setBounds(15, 138, 103, 14);
+		lblMedicoDeCabecera.setBounds(-11, 138, 129, 14);
 		lblMedicoDeCabecera.setHorizontalAlignment(SwingConstants.RIGHT);
 		
 		JLabel lblFonasa = new JLabel("Fonasa:");
@@ -80,7 +80,7 @@ public class AgregarNiño extends JFrame {
 		lblFonasa.setHorizontalAlignment(SwingConstants.RIGHT);
 		
 		textNombre = new JTextField();
-		textNombre.setBounds(120, 30, 151, 20);
+		textNombre.setBounds(120, 27, 151, 20);
 		textNombre.setColumns(10);
 		
 		textDocumento = new JTextField();
@@ -151,21 +151,6 @@ public class AgregarNiño extends JFrame {
 		comboServicioMedico.setBounds(120, 109, 151, 20);
 		contentPane.add(comboServicioMedico);
 		
-		textDia = new JTextField();
-		textDia.setBounds(120, 81, 32, 20);
-		contentPane.add(textDia);
-		textDia.setColumns(10);
-		
-		textMes = new JTextField();
-		textMes.setBounds(162, 81, 32, 20);
-		contentPane.add(textMes);
-		textMes.setColumns(10);
-		
-		textAño = new JTextField();
-		textAño.setBounds(204, 81, 67, 20);
-		contentPane.add(textAño);
-		textAño.setColumns(10);
-		
 		JButton btnNewButton = new JButton("Aplicar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -187,12 +172,27 @@ public class AgregarNiño extends JFrame {
 		});
 		btnCancelar.setBounds(63, 208, 89, 23);
 		contentPane.add(btnCancelar);
+		
+		comboDia = new JComboBox();
+		comboDia.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
+		comboDia.setBounds(120, 81, 41, 20);
+		contentPane.add(comboDia);
+		
+		comboMes = new JComboBox();
+		comboMes.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"}));
+		comboMes.setBounds(166, 81, 41, 20);
+		contentPane.add(comboMes);
+		
+		comboAño = new JComboBox();
+		comboAño.setModel(new DefaultComboBoxModel(new String[] {"2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008", "2007", "2006"}));
+		comboAño.setBounds(211, 81, 60, 20);
+		contentPane.add(comboAño);
 	}
 
 	protected void limpiar() {
-		textAño.setText("");
-		textMes.setText("");
-		textDia.setText("");
+		comboDia.setSelectedIndex(0);
+		comboMes.setSelectedIndex(0);
+		comboAño.setSelectedIndex(0);
 		textDocumento.setText("");
 		textMedicoCabecera.setText("");
 		textNombre.setText("");
@@ -209,9 +209,9 @@ public class AgregarNiño extends JFrame {
 		String nombre = textNombre.getText();
 		String documento = textDocumento.getText();
 		//Cargo variables con los datos de la fecha
-		int dia = Integer.parseInt(textDia.getText());
-		int mes = Integer.parseInt(textMes.getText());
-		int año = Integer.parseInt(textAño.getText());				
+		int dia = Integer.parseInt((String)comboDia.getSelectedItem());
+		int mes = Integer.parseInt((String)comboMes.getSelectedItem());
+		int año = Integer.parseInt((String)comboAño.getSelectedItem());				
 		fechaNacimiento.set(Calendar.DAY_OF_MONTH, dia);
 		fechaNacimiento.set(Calendar.MONTH, mes);
 		fechaNacimiento.set(Calendar.YEAR, año);
