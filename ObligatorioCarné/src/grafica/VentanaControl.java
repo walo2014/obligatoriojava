@@ -23,21 +23,6 @@ public class VentanaControl extends JFrame {
 	private JTextArea textArea;
 	private JButton btnAplicar;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VentanaControl frame = new VentanaControl();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.

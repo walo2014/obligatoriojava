@@ -27,22 +27,8 @@ public class VentanaVacuna extends JFrame {
 
 	private JPanel contentPane;
 	private JComboBox comboNiño;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VentanaVacuna frame = new VentanaVacuna();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	private ColeccionNiños coleccion;
+	
 
 	/**
 	 * Create the frame.
@@ -102,6 +88,12 @@ public class VentanaVacuna extends JFrame {
 		JLabel lblComentarios = new JLabel("Comentarios:");
 		lblComentarios.setBounds(63, 131, 112, 14);
 		contentPane.add(lblComentarios);
+		
+	for(int i = 0;i < coleccion.getMaxNiños();i++){
+		comboNiño.addItem(coleccion.listar());
+	}
+		
+		
 	}
 	
 	

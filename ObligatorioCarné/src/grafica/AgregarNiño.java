@@ -98,33 +98,7 @@ public class AgregarNiño extends JFrame {
 		btnAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				//Movi de lugar
-				/*Calendar fechaNacimiento = Calendar.getInstance();
-				
-				
-				String nombre = textNombre.getText();
-				String documento = textDocumento.getText();
-				//Cargo variables con los datos de la fecha
-				int dia = Integer.parseInt(textDia.getText());
-				int mes = Integer.parseInt(textMes.getText());
-				int año = Integer.parseInt(textAño.getText());				
-				fechaNacimiento.set(Calendar.DAY_OF_MONTH, dia);
-				fechaNacimiento.set(Calendar.MONTH, mes);
-				fechaNacimiento.set(Calendar.YEAR, año);
-				String servicioMedico = (String)comboServicioMedico.getSelectedItem();
-				String medicoCabecera = textMedicoCabecera.getText();
-				boolean fonasa = chckbxSi.isSelected();
-				
-				Niño ni = new Niño(nombre, documento, fechaNacimiento, servicioMedico, medicoCabecera, fonasa,coleccion.getMaxRegistro());
-				//pruebo objeto niño
-				//System.out.println(ni.getNombre() + ni.getDocumento() + ni.getFechaNacimiento() + ni.getServicioMedico() + ni.getMedicoCabecera() + ni.isTieneFonasa());
-				boolean valido=coleccion.agregar(ni);
-				if(valido)
-				{
-					//Lo mismo que hiciste en la ColeccionNiños pero en la interfaz grafica
-					JOptionPane.showMessageDialog(null, "El niño ha sido ingresado al sistema correctamente");
-				}
-				*/
+
 				boolean sePudo=guardarNiño();
 				if(sePudo)
 					dispose();
