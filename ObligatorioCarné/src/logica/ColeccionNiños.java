@@ -40,13 +40,13 @@ public class ColeccionNiños {
 	
 	public String[] listar()
 	{
-		String[]  resu = new String[topeNiños] ;
+		String[]  lista = new String[topeNiños] ;
 		for(int i = 0; i< topeNiños; i++)
 		{
-			resu[i] = arreglo[i].getNombre();
-			System.out.println(resu[i] + " posicion "+i);
+			lista[i] = arreglo[i].getNombre();
+			System.out.println(lista[i] + " posicion "+i);
 		}
-		return resu;
+		return lista;
 	}
 		
 	
