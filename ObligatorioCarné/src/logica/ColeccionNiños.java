@@ -32,7 +32,7 @@ public class ColeccionNiños {
 
 		} else {
 			arreglo[topeNiños] = n;
-
+	
 			topeNiños++;
 			return true;
 		}
