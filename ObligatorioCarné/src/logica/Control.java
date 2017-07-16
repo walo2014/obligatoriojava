@@ -3,7 +3,7 @@ package logica;
 import java.util.Calendar;
 
 public class Control extends Registro {
-	// Pendiente de programar por Luis
+	
 	private double peso;
 	private double altura;
 

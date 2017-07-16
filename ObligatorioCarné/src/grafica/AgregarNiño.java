@@ -22,7 +22,7 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-
+import java.util.ArrayList;
 import java.util.Calendar;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
@@ -131,6 +131,7 @@ public class AgregarNiño extends JFrame {
 				boolean sePudo=guardarNiño();
 				if(sePudo)
 					limpiar();
+				
 			}
 		});
 		btnNewButton.setBounds(289, 208, 89, 23);
@@ -157,8 +158,13 @@ public class AgregarNiño extends JFrame {
 		comboMes.setBounds(166, 81, 41, 20);
 		contentPane.add(comboMes);
 		
-		comboAño = new JComboBox();
-		comboAño.setModel(new DefaultComboBoxModel(new String[] {"2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008", "2007", "2006"}));
+		//Genero array con listado de años desde el actual hasta 1950
+		ArrayList<String> years_tmp = new ArrayList<String>();
+		for(int years = Calendar.getInstance().get(Calendar.YEAR); years>=1950; years--) {
+		    years_tmp.add(years+"");
+		}
+		
+		comboAño = new JComboBox(years_tmp.toArray());
 		comboAño.setBounds(211, 81, 60, 20);
 		contentPane.add(comboAño);
 	}
@@ -171,9 +177,7 @@ public class AgregarNiño extends JFrame {
 		textMedicoCabecera.setText("");
 		textNombre.setText("");
 		comboServicioMedico.setSelectedIndex(0);
-		
-		
-		
+				
 	}
 
 	protected boolean guardarNiño() {

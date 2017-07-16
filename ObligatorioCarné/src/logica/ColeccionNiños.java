@@ -38,19 +38,30 @@ public class ColeccionNiños {
 		}
 	}
 	
-	public String[] listar()
+	//LISTADO DE NOMBRES
+	public String[] listarNombres()
 	{
 		String[]  lista = new String[topeNiños] ;
 		for(int i = 0; i< topeNiños; i++)
 		{
 			lista[i] = arreglo[i].getNombre();
-			System.out.println(lista[i]);
+			//System.out.println(lista[i]);
 		}
 		return lista;
 	}
-		
 	
-
+	//LISTADO COMPLETO DE NIÑOS
+	public Niño[] listarNiños()
+	{
+		Niño[] listado = null;
+		for (int i = 0;i < topeNiños; i++)
+		{
+			listado[i] = arreglo[i];
+		}
+		
+		return listado;
+	}
+		
 	public int getMaxNiños() {
 		return maxNiños;
 	}
