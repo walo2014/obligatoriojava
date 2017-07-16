@@ -35,7 +35,8 @@ public class pruebas {
 		boolean valido=coleccion.agregar(ni);
 		
 		//Listo niño		
-		coleccion.listar();
+		coleccion.listarNombres();
+		
 	}
 
 }

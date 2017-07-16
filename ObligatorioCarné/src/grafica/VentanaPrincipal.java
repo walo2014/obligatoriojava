@@ -81,8 +81,7 @@ public class VentanaPrincipal extends JFrame {
 		JMenuItem mntmVacunarNio = new JMenuItem("Vacunar Ni\u00F1o");
 		mntmVacunarNio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				VentanaVacuna ventVacuna = new VentanaVacuna();
-				ventVacuna.setVisible(true);
+				mostrarVacunar();
 			}
 		});
 		mnRegistros.add(mntmVacunarNio);
@@ -90,8 +89,7 @@ public class VentanaPrincipal extends JFrame {
 		JMenuItem mntmConsultaNio = new JMenuItem("Consulta Ni\u00F1o");
 		mntmConsultaNio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				VentanaConsulta ventConsulta = new VentanaConsulta();
-				ventConsulta.setVisible(true);
+				mostrarConsulta();
 			}
 		});
 		mnRegistros.add(mntmConsultaNio);
@@ -99,8 +97,7 @@ public class VentanaPrincipal extends JFrame {
 		JMenuItem mntmControl = new JMenuItem("Control Ni\u00F1o");
 		mntmControl.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				VentanaControl ventControl = new VentanaControl();
-				ventControl.setVisible(true);
+				mostrarControl();
 			}
 		});
 		mnRegistros.add(mntmControl);
@@ -112,10 +109,29 @@ public class VentanaPrincipal extends JFrame {
 
 	}
 
-
-	protected void mostrarAgregarNiño() {
-		AgregarNiño ventana = new AgregarNiño(coleccion);
-		ventana.setVisible(true);
+	//Invocacion de ventanas
+	protected void mostrarAgregarNiño() 
+	{
+		AgregarNiño ventAgregar = new AgregarNiño(coleccion);
+		ventAgregar.setVisible(true);
 		
+	}
+	
+	protected void mostrarVacunar()
+	{
+		VentanaVacuna ventVacuna = new VentanaVacuna(coleccion);
+		ventVacuna.setVisible(true);
+	}
+	
+	protected void mostrarControl()
+	{
+		VentanaControl ventControl = new VentanaControl(coleccion);
+		ventControl.setVisible(true);
+	}
+	
+	protected void mostrarConsulta()
+	{
+		VentanaConsulta ventConsulta = new VentanaConsulta(coleccion);
+		ventConsulta.setVisible(true);
 	}
 }

@@ -34,7 +34,7 @@ public class VentanaVacuna extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public VentanaVacuna() {
+	public VentanaVacuna(ColeccionNiños col) {
 		setTitle("Vacunas");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -53,9 +53,11 @@ public class VentanaVacuna extends JFrame {
 		lblNewLabel_1.setBounds(10, 67, 44, 14);
 		contentPane.add(lblNewLabel_1);
 		
-		comboNiño = new JComboBox();
+		//comboNiño = new JComboBox();
+		comboNiño = new JComboBox(col.listarNombres());
 		comboNiño.setBounds(63, 26, 122, 20);
 		contentPane.add(comboNiño);
+		
 		
 		JComboBox comboVacuna = new JComboBox();
 		comboVacuna.setBounds(64, 64, 122, 20);
@@ -90,14 +92,7 @@ public class VentanaVacuna extends JFrame {
 		lblComentarios.setBounds(63, 131, 112, 14);
 		contentPane.add(lblComentarios);
 		
-		//Cargar combobox de niños
-		String[] datos = coleccion.listar();
-		DefaultListModel< String> modelo = new DefaultListModel<String>();
-		for(int i = 0; i< datos.length; i++)
-		{			
-			//modelo.addElement(datos[i]);
-			comboNiño.addItem(datos[i].toString());
-		}
+		
 	}
 		
 		

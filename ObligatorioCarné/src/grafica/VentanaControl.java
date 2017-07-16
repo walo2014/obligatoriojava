@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import logica.ColeccionNiños;
+
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
@@ -22,12 +25,12 @@ public class VentanaControl extends JFrame {
 	private JLabel lblNio;
 	private JTextArea textArea;
 	private JButton btnAplicar;
-
+	private ColeccionNiños coleccion;
 
 	/**
 	 * Create the frame.
 	 */
-	public VentanaControl() {
+	public VentanaControl(ColeccionNiños col) {
 		setTitle("Control");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -58,7 +61,7 @@ public class VentanaControl extends JFrame {
 		lblComentarios.setBounds(76, 123, 74, 14);
 		contentPane.add(lblComentarios);
 		
-		comboNiño = new JComboBox();
+		comboNiño = new JComboBox(col.listarNombres());
 		comboNiño.setBounds(76, 36, 86, 20);
 		contentPane.add(comboNiño);
 		
