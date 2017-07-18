@@ -185,7 +185,7 @@ public class AgregarNiño extends JFrame {
 		
 		
 		String nombre = textNombre.getText();
-		String documento = textDocumento.getText();
+		int documento = Integer.parseInt(textDocumento.getText());
 		//Cargo variables con los datos de la fecha
 		int dia = Integer.parseInt((String)comboDia.getSelectedItem());
 		int mes = Integer.parseInt((String)comboMes.getSelectedItem());

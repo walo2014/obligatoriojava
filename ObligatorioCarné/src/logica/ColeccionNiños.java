@@ -4,6 +4,7 @@ import javax.swing.JOptionPane;
 
 public class ColeccionNiños {
 	private Niño[] arreglo;
+	private Vacuna[] vacunas;
 	private int topeNiños;
 	private int maxNiños;
 	private int maxRegistro;
@@ -20,9 +21,33 @@ public class ColeccionNiños {
 		topeNiños = 0;
 		arreglo = new Niño[maximoNiños];
 		maxRegistro=maximoRegistros;
+		inicializarSistemaVacuna();
 
 	}
 
+
+	private void inicializarSistemaVacuna() {
+		vacunas=new Vacuna[2];
+		
+		//BCG
+		Vacuna BCG=new Vacuna("BCG",true);
+		BCG.agregarMes(0);
+		
+		
+		//PentaValente
+		Vacuna pentavalente=new Vacuna("Pentavalente",true);
+		pentavalente.agregarMes(2);
+		pentavalente.agregarMes(4);
+		pentavalente.agregarMes(6);
+		pentavalente.agregarMes(8);
+		
+		//Guarda
+		vacunas[0]=BCG;
+		vacunas[1]=pentavalente;
+		
+		//resto
+		
+	}
 
 	public boolean agregar(Niño n) {
 
@@ -53,7 +78,7 @@ public class ColeccionNiños {
 	//LISTADO COMPLETO DE NIÑOS
 	public Niño[] listarNiños()
 	{
-		Niño[] listado = null;
+		Niño[] listado = new Niño[topeNiños];
 		for (int i = 0;i < topeNiños; i++)
 		{
 			listado[i] = arreglo[i];
@@ -74,6 +99,24 @@ public class ColeccionNiños {
 	public int getMaxRegistro() {
 		
 		return maxRegistro;
+	}
+
+	public Niño getDatosNiño(int cedula) {
+		int i=0;
+		Niño niño=null;
+		while(i<topeNiños && niño==null){
+			Niño aux=arreglo[i];
+			if(aux.getDocumento()==cedula)
+				niño=aux;
+			else
+				i++;
+		}
+		return niño;
+	}
+
+	public Vacuna[] listadoVacunas() {
+		
+		return vacunas;
 	}
 
 }

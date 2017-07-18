@@ -18,7 +18,7 @@ public class pruebas {
 		//carga de un niño de prueba1
 		Calendar fechaNacimiento = Calendar.getInstance();
 		String nombre = "Nombre de prueba";
-		String documento = "docPrueba";
+		int documento = 5675675;
 		//Cargo variables con los datos de la fecha
 		int dia = Integer.parseInt("1");
 		int mes = Integer.parseInt("1");

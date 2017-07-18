@@ -1,10 +1,11 @@
 package logica;
 import java.util.Calendar;
+import java.util.Date;
 
 public class Niño {
 	//parametros
 	private String nombre;
-	private String documento;
+	private int documento;
 	private Calendar fechaNacimiento;
 	private String servicioMedico;
 	private String medicoCabecera;
@@ -14,7 +15,7 @@ public class Niño {
 	private int tope;
 
 	//contructor
-	public Niño(String nom,String doc,Calendar fecNac,String serMed,String medCab,boolean tieFon,int cantidadRegistro)
+	public Niño(String nom,int doc,Calendar fecNac,String serMed,String medCab,boolean tieFon,int cantidadRegistro)
 		{
 			
 			nombre = nom;
@@ -27,6 +28,9 @@ public class Niño {
 			tope=0;
 		}
 
+
+	
+	
 	public String getNombre() {
 		return nombre;
 	}
@@ -35,11 +39,11 @@ public class Niño {
 		this.nombre = nombre;
 	}
 
-	public String getDocumento() {
+	public int getDocumento() {
 		return documento;
 	}
 
-	public void setDocumento(String documento) {
+	public void setDocumento(int documento) {
 		this.documento = documento;
 	}
 
@@ -88,4 +92,66 @@ public class Niño {
 		return guardo;
 	}
 	
+	public int edadMeses(){
+		int cuantosMeses=0;
+		Calendar hoy = Calendar.getInstance();
+		Calendar copia=(Calendar)fechaNacimiento.clone();
+		 while(copia.before(hoy))
+         {
+        	 cuantosMeses++;  
+        	 copia.add(Calendar.MONTH, 1);        	       	 
+         }         
+         return cuantosMeses;
+	}
+	
+	private Vacuna[] listadoVacunasDadas(){
+		Vacuna[] vacunas=new Vacuna[100];
+		int hasta=0;
+		for(int i=0;i<tope;i++)
+		{
+			Registro registro=registros[i];
+			if(registro instanceof RegistroVacuna){
+				RegistroVacuna rv=(RegistroVacuna)registro;
+				vacunas[hasta]=rv.getVacuna();
+				hasta++;
+			}
+		}
+		
+		Vacuna[]copia=new Vacuna[hasta];
+		for(int i=0;i<tope;i++)
+		{
+			copia[i]=vacunas[i];
+		}
+		return copia;
+	}
+	
+	
+	public Vacuna[] listadoVacunas(Vacuna[] sistemaVacuna){
+		int meses=edadMeses();
+		Vacuna[] vacunas=new Vacuna[100];
+		int j=0;
+		if(Vacuna.hayVacunacion(meses)){
+			for(int i=0;i<sistemaVacuna.length;i++)
+			{
+				Vacuna vacuna=sistemaVacuna[i];
+				if(vacuna.corresponde(meses)){
+					vacunas[j]=vacuna;
+					j++;
+				}
+			}
+			Vacuna[]copia=new Vacuna[j];
+			for(int i=0;i<j;i++)
+			{
+				copia[i]=vacunas[i];
+			}
+			return copia;
+		}
+		else
+			return null;
+		
+	}
+	
+	public String toString(){
+		return "Nombre : "+nombre+" Documento : "+documento+" Fecha de Nacimiento : "+fechaNacimiento.toString();
+	}
 }

@@ -4,20 +4,21 @@ package logica;
 
 import java.util.Calendar;
 
-public class Vacuna extends Registro{
+public class Vacuna{
 	
 	//Parametros
 	private String nombre;
-	private int dosis;
+	
+	private boolean meses[];
 	private boolean esObligatoria;
 	
-	public Vacuna(Calendar fecha, String comentario, String nombre, int dosis, boolean esObligatoria) 
+	public Vacuna(String nombre, boolean esObligatoria) 
 	{
-		super(fecha,comentario);
-		this.nombre = nombre;
-		this.dosis = dosis;
-		this.esObligatoria = esObligatoria;
 		
+		this.nombre = nombre;
+		
+		this.esObligatoria = esObligatoria;
+		meses=new boolean[11];
 	}
 	
    //metodos selectores y modificadores
@@ -29,14 +30,10 @@ public class Vacuna extends Registro{
 		this.nombre = nombre;
 	}
 
-	public int getDosis() {
-		return dosis;
+	public void agregarMes(int mes){
+		meses[mes]=true;
 	}
-
-	public void setDosis(int dosis) {
-		this.dosis = dosis;
-	}
-
+	
 	public boolean isEsObligatoria() {
 		return esObligatoria;
 	}
@@ -45,12 +42,47 @@ public class Vacuna extends Registro{
 		this.esObligatoria = esObligatoria;
 	}
 
-	@Override
 	public String mostrarRegistro() {
 		String obligatorio=" no es obligatorio";
 		if(esObligatoria)
 			obligatorio=" es obligatorio";
-		return super.mostrarRegistro()+" Nombre : "+this.nombre+" Dosis : "+this.dosis+ "La vacuna"+obligatorio;
+		return " Nombre : "+this.nombre+" Dosis : 4 La vacuna"+obligatorio;
 	}
+
 	
+	private static int posMes(int mes){
+		if(mes<=6)
+			return mes;
+		else
+			if(mes==12)
+				return 7;
+			else
+				if(mes==15)
+					return 8;
+				else
+					if(mes==21)
+						return 9;
+					else
+						if(mes==60)
+							return 10;
+						else
+							return -1;
+	}
+	public boolean corresponde(int mes) {
+		int pos=posMes(mes);
+		if(pos==-1)
+			return false;
+		else
+			return meses[pos];
+	}
+
+	public static boolean hayVacunacion(int mes) {
+		if(posMes(mes)==-1)
+			return false;
+		else
+			return true;
+	}
+	public String toString(){
+		return nombre;
+	}
 }

@@ -8,6 +8,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import logica.ColeccionNiños;
+import logica.Niño;
+import logica.Vacuna;
 
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -27,8 +29,11 @@ import java.awt.event.ActionEvent;
 public class VentanaVacuna extends JFrame {
 
 	private JPanel contentPane;
-	private JComboBox comboNiño;
 	private ColeccionNiños coleccion;
+	private Niño niño;
+	private JTextField txtCedula;
+	private JLabel lblDatos;
+	private JComboBox cbxVacuna;
 	
 
 	/**
@@ -36,8 +41,9 @@ public class VentanaVacuna extends JFrame {
 	 */
 	public VentanaVacuna(ColeccionNiños col) {
 		setTitle("Vacunas");
+		coleccion=col;
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 450, 353);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -50,53 +56,70 @@ public class VentanaVacuna extends JFrame {
 		
 		JLabel lblNewLabel_1 = new JLabel("Vacuna:");
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel_1.setBounds(10, 67, 44, 14);
+		lblNewLabel_1.setBounds(10, 103, 44, 14);
 		contentPane.add(lblNewLabel_1);
 		
-		//comboNiño = new JComboBox();
-		comboNiño = new JComboBox(col.listarNombres());
-		comboNiño.setBounds(63, 26, 122, 20);
-		contentPane.add(comboNiño);
 		
-		
-		JComboBox comboVacuna = new JComboBox();
-		comboVacuna.setBounds(64, 64, 122, 20);
-		contentPane.add(comboVacuna);
+		cbxVacuna = new JComboBox();
+		cbxVacuna.setBounds(67, 100, 122, 20);
+		contentPane.add(cbxVacuna);
 		
 		JButton btnAceptar = new JButton("Aplicar");
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		btnAceptar.setBounds(241, 227, 89, 23);
+		btnAceptar.setBounds(335, 280, 89, 23);
 		contentPane.add(btnAceptar);
 		
 		JTextArea txtrFdvsf = new JTextArea();
 		txtrFdvsf.setSize(new Dimension(3, 3));
-		txtrFdvsf.setRows(1);
+		txtrFdvsf.setRows(50);
 		txtrFdvsf.setLineWrap(true);
-		txtrFdvsf.setBounds(63, 149, 267, 67);
+		txtrFdvsf.setBounds(64, 186, 267, 67);
 		contentPane.add(txtrFdvsf);
 		
-		JComboBox comboDosis = new JComboBox();
-		comboDosis.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9"}));
-		comboDosis.setBounds(63, 100, 122, 20);
-		contentPane.add(comboDosis);
-		
-		JLabel lblDosis = new JLabel("Dosis:");
-		lblDosis.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblDosis.setBounds(8, 103, 46, 14);
-		contentPane.add(lblDosis);
-		
 		JLabel lblComentarios = new JLabel("Comentarios:");
-		lblComentarios.setBounds(63, 131, 112, 14);
+		lblComentarios.setBounds(60, 161, 112, 14);
 		contentPane.add(lblComentarios);
+		
+		txtCedula = new JTextField();
+		txtCedula.setBounds(62, 29, 127, 20);
+		contentPane.add(txtCedula);
+		txtCedula.setColumns(10);
+		niño=null;
+		JButton btnBuscar = new JButton("Buscar");
+		btnBuscar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				buscarNiño();
+				
+			}
+		});
+		btnBuscar.setBounds(220, 25, 89, 23);
+		contentPane.add(btnBuscar);
+		
+		lblDatos = new JLabel("");
+		lblDatos.setBounds(60, 54, 364, 23);
+		contentPane.add(lblDatos);
 		
 		
 	}
-		
-		
 	
-	
-	
+	protected void buscarNiño() {
+		int cedula=Integer.parseInt(txtCedula.getText());
+		niño=coleccion.getDatosNiño(cedula);
+		if(niño==null){
+			lblDatos.setText("No se encuentra en el sistema");
+			
+			
+		}
+		else{
+			lblDatos.setText(niño.toString());
+Vacuna[] vacunas=niño.listadoVacunas(coleccion.listadoVacunas());
+			
+			for(int i=0;i<vacunas.length;i++){
+				cbxVacuna.addItem(vacunas[i]);
+			}
+		}
+	}
 }
