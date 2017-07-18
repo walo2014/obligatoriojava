@@ -1,0 +1,19 @@
+package logica;
+
+import java.util.Calendar;
+
+public class RegistroVacuna extends Registro {
+	private Vacuna vacuna;
+	public RegistroVacuna(Calendar fecha, String comentario,Vacuna vacuna) {
+		super(fecha, comentario);
+		this.vacuna=vacuna;
+	}
+	public Vacuna getVacuna() {
+		return vacuna;
+	}
+	public void setVacuna(Vacuna vacuna) {
+		this.vacuna = vacuna;
+	}
+
+	
+}
