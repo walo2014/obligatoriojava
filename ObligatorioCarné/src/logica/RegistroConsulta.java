@@ -3,14 +3,14 @@ package logica;
 import java.util.Calendar;
 
 //Pendiente de programar por Maria
-public class Consulta extends Registro {
+public class RegistroConsulta extends Registro {
 	// subclase de la clase Registro
 	private String medico;
 	private String diagnostico;
 	private String recomendaciones;
 
 	// constructor
-	public Consulta(Calendar fecha, String comentario, String medico, String diagnostico, String recomendaciones) {
+	public RegistroConsulta(Calendar fecha, String comentario, String medico, String diagnostico, String recomendaciones) {
 		super(fecha, comentario);
 		this.medico = medico;
 		this.diagnostico = diagnostico;

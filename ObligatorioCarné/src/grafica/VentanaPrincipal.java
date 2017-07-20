@@ -125,13 +125,13 @@ public class VentanaPrincipal extends JFrame {
 	
 	protected void mostrarControl()
 	{
-		VentanaControl ventControl = new VentanaControl(coleccion);
+		VentanaAgregarControl ventControl = new VentanaAgregarControl(coleccion);
 		ventControl.setVisible(true);
 	}
 	
 	protected void mostrarConsulta()
 	{
-		VentanaConsulta ventConsulta = new VentanaConsulta(coleccion);
+		VentanaAgregarConsulta ventConsulta = new VentanaAgregarConsulta(coleccion);
 		ventConsulta.setVisible(true);
 	}
 }

@@ -16,7 +16,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
 
-public class VentanaControl extends JFrame {
+public class VentanaAgregarControl extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textPeso;
@@ -30,7 +30,7 @@ public class VentanaControl extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public VentanaControl(ColeccionNiños col) {
+	public VentanaAgregarControl(ColeccionNiños col) {
 		setTitle("Control");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);

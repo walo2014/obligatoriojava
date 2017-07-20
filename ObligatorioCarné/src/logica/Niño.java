@@ -152,6 +152,10 @@ public class Niño {
 	}
 	
 	public String toString(){
-		return "Nombre : "+nombre+" Documento : "+documento+" Fecha de Nacimiento : "+fechaNacimiento.toString();
+		int dia = fechaNacimiento.get(Calendar.DAY_OF_MONTH);
+		int mes = fechaNacimiento.get(Calendar.MONTH);
+		int año = fechaNacimiento.get(Calendar.YEAR);
+	
+		return "Nombre : "+nombre+" Documento : "+documento+" Fecha de Nacimiento : "+ dia + "/" + mes + "/" + año;
 	}
 }

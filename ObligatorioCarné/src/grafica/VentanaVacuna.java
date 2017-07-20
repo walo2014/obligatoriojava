@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 
 import logica.ColeccionNiños;
 import logica.Niño;
+import logica.RegistroVacuna;
 import logica.Vacuna;
 
 import javax.swing.JLabel;
@@ -24,6 +25,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
+import java.util.Calendar;
 import java.awt.event.ActionEvent;
 
 public class VentanaVacuna extends JFrame {
@@ -34,6 +36,7 @@ public class VentanaVacuna extends JFrame {
 	private JTextField txtCedula;
 	private JLabel lblDatos;
 	private JComboBox cbxVacuna;
+	private JComboBox comboVacuna;
 	
 
 	/**
@@ -56,12 +59,12 @@ public class VentanaVacuna extends JFrame {
 		
 		JLabel lblNewLabel_1 = new JLabel("Vacuna:");
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel_1.setBounds(10, 103, 44, 14);
+		lblNewLabel_1.setBounds(10, 133, 44, 14);
 		contentPane.add(lblNewLabel_1);
 		
 		
 		cbxVacuna = new JComboBox();
-		cbxVacuna.setBounds(67, 100, 122, 20);
+		cbxVacuna.setBounds(64, 130, 122, 20);
 		contentPane.add(cbxVacuna);
 		
 		JButton btnAceptar = new JButton("Aplicar");
@@ -76,11 +79,11 @@ public class VentanaVacuna extends JFrame {
 		txtrFdvsf.setSize(new Dimension(3, 3));
 		txtrFdvsf.setRows(50);
 		txtrFdvsf.setLineWrap(true);
-		txtrFdvsf.setBounds(64, 186, 267, 67);
+		txtrFdvsf.setBounds(65, 211, 267, 67);
 		contentPane.add(txtrFdvsf);
 		
 		JLabel lblComentarios = new JLabel("Comentarios:");
-		lblComentarios.setBounds(60, 161, 112, 14);
+		lblComentarios.setBounds(64, 186, 112, 14);
 		contentPane.add(lblComentarios);
 		
 		txtCedula = new JTextField();
@@ -102,6 +105,28 @@ public class VentanaVacuna extends JFrame {
 		lblDatos.setBounds(60, 54, 364, 23);
 		contentPane.add(lblDatos);
 		
+		comboVacuna = new JComboBox();
+		comboVacuna.setModel(new DefaultComboBoxModel(new String[] {"BCG", "Pentavante"}));
+		comboVacuna.setBounds(64, 81, 122, 20);
+		contentPane.add(comboVacuna);
+		
+		JButton btnVacunar = new JButton("Vacunar");
+		btnVacunar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Calendar fecha = Calendar.getInstance();
+				//String comentario = txtrFdvsf.getText(); 
+				
+				//HAY QUE HACER UN OBJETO VACUNA PARA AGREGAR AL ARREGLO DE REGISTROS DEL NIÑO?
+				
+				//Vacuna vac = 
+			//Registro reg = new RegistroVacuna(fecha, comentario, vacuna);
+			
+			}
+			
+		});
+		btnVacunar.setBounds(220, 80, 89, 23);
+		contentPane.add(btnVacunar);
+		
 		
 	}
 	
@@ -109,8 +134,7 @@ public class VentanaVacuna extends JFrame {
 		int cedula=Integer.parseInt(txtCedula.getText());
 		niño=coleccion.getDatosNiño(cedula);
 		if(niño==null){
-			lblDatos.setText("No se encuentra en el sistema");
-			
+			lblDatos.setText("No se encuentra en el sistema");		
 			
 		}
 		else{

@@ -14,7 +14,7 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 
-public class VentanaConsulta extends JFrame {
+public class VentanaAgregarConsulta extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
@@ -25,7 +25,7 @@ public class VentanaConsulta extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public VentanaConsulta(ColeccionNiños col) {
+	public VentanaAgregarConsulta(ColeccionNiños col) {
 		setTitle("Consulta");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);

@@ -1,6 +1,10 @@
 package logica;
 
+import java.util.Calendar;
+
 import javax.swing.JOptionPane;
+
+import excepciones.NoHayLugarException;
 
 public class ColeccionNiños {
 	private Niño[] arreglo;
@@ -8,10 +12,13 @@ public class ColeccionNiños {
 	private int topeNiños;
 	private int maxNiños;
 	private int maxRegistro;
+	private int topeRegistro;
+	
 	public ColeccionNiños() {
 
 		arreglo = null;
 		topeNiños = 0;
+		topeRegistro = 0;
 		maxNiños = 0;
 		maxRegistro=0;
 	}
@@ -49,18 +56,33 @@ public class ColeccionNiños {
 		
 	}
 
-	public boolean agregar(Niño n) {
+	public boolean agregar(Niño n) throws NoHayLugarException{
 
-
+boolean resu = false;
 		if (topeNiños == arreglo.length) {
-			return false;
-
+			
+         throw new NoHayLugarException("No hay lugar para mas ninios");
 		} else {
+			
 			arreglo[topeNiños] = n;
 	
 			topeNiños++;
-			return true;
+			resu = true;
 		}
+		return resu;
+	}
+	
+	public boolean agregarVacuna(int cedula, Vacuna vacuna, Calendar fecha, boolean oblig)
+	{
+		if(getDatosNiño(cedula) != null)
+		{
+			Niño n = getDatosNiño(cedula);
+		RegistroVacuna v = new RegistroVacuna(fecha, "vacunado", vacuna);
+			n.agregar(v);
+		}
+			
+
+		return true;
 	}
 	
 	//LISTADO DE NOMBRES

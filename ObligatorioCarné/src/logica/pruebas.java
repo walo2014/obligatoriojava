@@ -4,6 +4,7 @@ import java.util.Calendar;
 
 import javax.swing.JOptionPane;
 
+import excepciones.NoHayLugarException;
 import grafica.VentanaPrincipal;
 
 public class pruebas {
@@ -32,7 +33,12 @@ public class pruebas {
 				
 		Niño ni = new Niño(nombre, documento, fechaNacimiento, servicioMedico, medicoCabecera, fonasa,coleccion.getMaxRegistro());
 
-		boolean valido=coleccion.agregar(ni);
+		try {
+			boolean valido=coleccion.agregar(ni);
+		} catch (NoHayLugarException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		//Listo niño		
 		coleccion.listarNombres();

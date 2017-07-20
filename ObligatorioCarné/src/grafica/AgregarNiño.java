@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import excepciones.NoHayLugarException;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
@@ -181,6 +184,7 @@ public class AgregarNiño extends JFrame {
 	}
 
 	protected boolean guardarNiño() {
+		try{
 		Calendar fechaNacimiento = Calendar.getInstance();
 		
 		
@@ -211,6 +215,10 @@ public class AgregarNiño extends JFrame {
 			JOptionPane.showMessageDialog(null, "Ya no puede ingresar mas niños al sistema","ERROR" ,JOptionPane.ERROR_MESSAGE);
 			return false;
 		}
-		
+		}catch(NoHayLugarException e)
+		{
+			JOptionPane.showMessageDialog(null, e.getMensaje());
+		}
+		return false;
 	}
 }
