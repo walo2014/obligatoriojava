@@ -57,6 +57,10 @@ public class VentanaAgregarVacuna extends JFrame {
 		contentPane.add(comboDosis);
 		
 		JButton btnVacunar = new JButton("Vacunar");
+		btnVacunar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
 		btnVacunar.setBounds(139, 156, 89, 23);
 		contentPane.add(btnVacunar);
 	}

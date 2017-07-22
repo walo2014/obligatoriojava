@@ -4,6 +4,7 @@ import java.util.Calendar;
 
 import javax.swing.JOptionPane;
 
+import excepciones.ExisteNinioException;
 import excepciones.NoHayLugarException;
 
 public class ColeccionNiños {
@@ -72,17 +73,18 @@ boolean resu = false;
 		return resu;
 	}
 	
-	public boolean agregarVacuna(int cedula, Vacuna vacuna, Calendar fecha, boolean oblig)
+	public void agregarVacuna(int cedula, Vacuna vacuna, Calendar fecha, String comentario)throws ExisteNinioException
 	{
 		if(getDatosNiño(cedula) != null)
 		{
 			Niño n = getDatosNiño(cedula);
-		RegistroVacuna v = new RegistroVacuna(fecha, "vacunado", vacuna);
+			RegistroVacuna v = new RegistroVacuna(fecha, comentario, vacuna);
 			n.agregar(v);
 		}
-			
+		else
+			throw new ExisteNinioException("No existe el niño con esa cedula");
 
-		return true;
+		
 	}
 	
 	//LISTADO DE NOMBRES

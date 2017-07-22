@@ -76,6 +76,12 @@ public class VentanaPrincipal extends JFrame {
 		menuBar.add(mnRegistros);
 		
 		JMenuItem mntmVerNios_1 = new JMenuItem("Ver Registros Ni\u00F1os");
+		mntmVerNios_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				verregistro();
+				
+			}
+		});
 		mnRegistros.add(mntmVerNios_1);
 		
 		JMenuItem mntmVacunarNio = new JMenuItem("Vacunar Ni\u00F1o");
@@ -107,6 +113,12 @@ public class VentanaPrincipal extends JFrame {
 		contentPane.setLayout(null);
 		
 
+	}
+
+	protected void verregistro() {
+		ListadoVacunasDadas ventana=new ListadoVacunasDadas(coleccion);
+		ventana.setVisible(true);
+		
 	}
 
 	//Invocacion de ventanas

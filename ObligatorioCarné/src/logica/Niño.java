@@ -1,9 +1,10 @@
 package logica;
+
 import java.util.Calendar;
 import java.util.Date;
 
 public class Niño {
-	//parametros
+	// parametros
 	private String nombre;
 	private int documento;
 	private Calendar fechaNacimiento;
@@ -11,26 +12,23 @@ public class Niño {
 	private String medicoCabecera;
 	private boolean tieneFonasa;
 
-	private Registro[] registros; 
+	private Registro[] registros;
 	private int tope;
 
-	//contructor
-	public Niño(String nom,int doc,Calendar fecNac,String serMed,String medCab,boolean tieFon,int cantidadRegistro)
-		{
-			
-			nombre = nom;
-			documento = doc;
-			fechaNacimiento = fecNac;
-			servicioMedico = serMed;
-			medicoCabecera = medCab;
-			tieneFonasa = tieFon;
-			registros=new Registro[cantidadRegistro];
-			tope=0;
-		}
+	// contructor
+	public Niño(String nom, int doc, Calendar fecNac, String serMed, String medCab, boolean tieFon,
+			int cantidadRegistro) {
 
+		nombre = nom;
+		documento = doc;
+		fechaNacimiento = fecNac;
+		servicioMedico = serMed;
+		medicoCabecera = medCab;
+		tieneFonasa = tieFon;
+		registros = new Registro[cantidadRegistro];
+		tope = 0;
+	}
 
-	
-	
 	public String getNombre() {
 		return nombre;
 	}
@@ -79,83 +77,77 @@ public class Niño {
 		this.tieneFonasa = tieneFonasa;
 	}
 
-	//Recuperar y mostrar en el futuro registro
-	
-	public boolean agregar(Registro registro){
-		boolean guardo=false;
-		
-		if(tope<registros.length){
-			registros[tope]=registro;
-			guardo=true;
+	// Recuperar y mostrar en el futuro registro
+
+	public boolean agregar(Registro registro) {
+		boolean guardo = false;
+
+		if (tope < registros.length) {
+			registros[tope] = registro;
+			guardo = true;
 			tope++;
 		}
 		return guardo;
 	}
-	
-	public int edadMeses(){
-		int cuantosMeses=0;
+
+	public int edadMeses() {
+		int cuantosMeses = 0;
 		Calendar hoy = Calendar.getInstance();
-		Calendar copia=(Calendar)fechaNacimiento.clone();
-		 while(copia.before(hoy))
-         {
-        	 cuantosMeses++;  
-        	 copia.add(Calendar.MONTH, 1);        	       	 
-         }         
-         return cuantosMeses;
+		Calendar copia = (Calendar) fechaNacimiento.clone();
+		while (copia.before(hoy)) {
+			cuantosMeses++;
+			copia.add(Calendar.MONTH, 1);
+		}
+		return cuantosMeses;
 	}
-	
-	private Vacuna[] listadoVacunasDadas(){
-		Vacuna[] vacunas=new Vacuna[100];
-		int hasta=0;
-		for(int i=0;i<tope;i++)
-		{
-			Registro registro=registros[i];
-			if(registro instanceof RegistroVacuna){
-				RegistroVacuna rv=(RegistroVacuna)registro;
-				vacunas[hasta]=rv.getVacuna();
+
+	private Vacuna[] listadoVacunasDadas() {
+		Vacuna[] vacunas = new Vacuna[100];
+		int hasta = 0;
+		for (int i = 0; i < tope; i++) {
+			Registro registro = registros[i];
+			if (registro instanceof RegistroVacuna) {
+				RegistroVacuna rv = (RegistroVacuna) registro;
+				vacunas[hasta] = rv.getVacuna();
 				hasta++;
 			}
 		}
-		
-		Vacuna[]copia=new Vacuna[hasta];
-		for(int i=0;i<tope;i++)
-		{
-			copia[i]=vacunas[i];
+
+		Vacuna[] copia = new Vacuna[hasta];
+		for (int i = 0; i < tope; i++) {
+			copia[i] = vacunas[i];
 		}
 		return copia;
 	}
-	
-	
-	public Vacuna[] listadoVacunas(Vacuna[] sistemaVacuna){
-		int meses=edadMeses();
-		Vacuna[] vacunas=new Vacuna[100];
-		int j=0;
-		if(Vacuna.hayVacunacion(meses)){
-			for(int i=0;i<sistemaVacuna.length;i++)
-			{
-				Vacuna vacuna=sistemaVacuna[i];
-				if(vacuna.corresponde(meses)){
-					vacunas[j]=vacuna;
-					j++;
-				}
+
+	public Vacuna[] listadoVacunas() {
+		int j = 0;
+		Vacuna[] vacunas = new Vacuna[100];
+
+		for (int i = 0; i < registros.length; i++) {
+			Registro registro = registros[i];
+			if (registro instanceof RegistroVacuna) {
+				RegistroVacuna rv = (RegistroVacuna) registro;
+				vacunas[j]=rv.getVacuna();
+				j++;
 			}
-			Vacuna[]copia=new Vacuna[j];
-			for(int i=0;i<j;i++)
-			{
-				copia[i]=vacunas[i];
-			}
-			return copia;
+			
 		}
-		else
-			return null;
-		
+		Vacuna[] copia = new Vacuna[j];
+		for (int i = 0; i < j; i++) {
+			copia[i] = vacunas[i];
+		}
+		return copia;
 	}
+
 	
-	public String toString(){
+
+	public String toString() {
 		int dia = fechaNacimiento.get(Calendar.DAY_OF_MONTH);
 		int mes = fechaNacimiento.get(Calendar.MONTH);
 		int año = fechaNacimiento.get(Calendar.YEAR);
-	
-		return "Nombre : "+nombre+" Documento : "+documento+" Fecha de Nacimiento : "+ dia + "/" + mes + "/" + año;
+
+		return "Nombre : " + nombre + " Documento : " + documento + " Fecha de Nacimiento : " + dia + "/" + mes + "/"
+				+ año;
 	}
 }

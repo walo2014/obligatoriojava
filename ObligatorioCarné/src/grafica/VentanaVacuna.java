@@ -7,12 +7,15 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import excepciones.ExisteNinioException;
 import logica.ColeccionNiños;
 import logica.Niño;
+import logica.Registro;
 import logica.RegistroVacuna;
 import logica.Vacuna;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
@@ -26,7 +29,10 @@ import javax.swing.DefaultListModel;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.util.Calendar;
+import java.util.Date;
 import java.awt.event.ActionEvent;
+import javax.swing.JCheckBox;
+import java.awt.Color;
 
 public class VentanaVacuna extends JFrame {
 
@@ -36,7 +42,11 @@ public class VentanaVacuna extends JFrame {
 	private JTextField txtCedula;
 	private JLabel lblDatos;
 	private JComboBox cbxVacuna;
-	private JComboBox comboVacuna;
+	private JComboBox cbxDia;
+	private JComboBox cbxMes;
+	private JComboBox cbxAño;
+	private JCheckBox ckxObligatorio;
+	private JTextArea txtComentario;
 	
 
 	/**
@@ -46,44 +56,41 @@ public class VentanaVacuna extends JFrame {
 		setTitle("Vacunas");
 		coleccion=col;
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 450, 353);
+		setBounds(100, 100, 450, 404);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNiño = new JLabel("Ni\u00F1o:");
+		
+		
+		JLabel lblNiño = new JLabel("Cedula:");
 		lblNiño.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblNiño.setBounds(10, 29, 44, 14);
 		contentPane.add(lblNiño);
 		
 		JLabel lblNewLabel_1 = new JLabel("Vacuna:");
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel_1.setBounds(10, 133, 44, 14);
+		lblNewLabel_1.setBounds(10, 84, 44, 14);
 		contentPane.add(lblNewLabel_1);
-		
-		
-		cbxVacuna = new JComboBox();
-		cbxVacuna.setBounds(64, 130, 122, 20);
-		contentPane.add(cbxVacuna);
 		
 		JButton btnAceptar = new JButton("Aplicar");
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		btnAceptar.setBounds(335, 280, 89, 23);
+		btnAceptar.setBounds(335, 331, 89, 23);
 		contentPane.add(btnAceptar);
 		
-		JTextArea txtrFdvsf = new JTextArea();
-		txtrFdvsf.setSize(new Dimension(3, 3));
-		txtrFdvsf.setRows(50);
-		txtrFdvsf.setLineWrap(true);
-		txtrFdvsf.setBounds(65, 211, 267, 67);
-		contentPane.add(txtrFdvsf);
+		txtComentario = new JTextArea();
+		txtComentario.setSize(new Dimension(3, 3));
+		txtComentario.setRows(50);
+		txtComentario.setLineWrap(true);
+		txtComentario.setBounds(10, 211, 414, 109);
+		contentPane.add(txtComentario);
 		
 		JLabel lblComentarios = new JLabel("Comentarios:");
-		lblComentarios.setBounds(64, 186, 112, 14);
+		lblComentarios.setBounds(10, 186, 112, 14);
 		contentPane.add(lblComentarios);
 		
 		txtCedula = new JTextField();
@@ -105,28 +112,80 @@ public class VentanaVacuna extends JFrame {
 		lblDatos.setBounds(60, 54, 364, 23);
 		contentPane.add(lblDatos);
 		
-		comboVacuna = new JComboBox();
-		comboVacuna.setModel(new DefaultComboBoxModel(new String[] {"BCG", "Pentavante"}));
-		comboVacuna.setBounds(64, 81, 122, 20);
-		contentPane.add(comboVacuna);
+		cbxVacuna = new JComboBox();
+		cbxVacuna.setModel(new DefaultComboBoxModel(new String[] {"BCG", "Pentavante"}));
+		cbxVacuna.setBounds(64, 81, 122, 20);
+		contentPane.add(cbxVacuna);
 		
 		JButton btnVacunar = new JButton("Vacunar");
 		btnVacunar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Calendar fecha = Calendar.getInstance();
-				//String comentario = txtrFdvsf.getText(); 
+
+				int dia=cbxDia.getSelectedIndex()+1;
+				int mes=cbxMes.getSelectedIndex();
+				int anio=Integer.parseInt(cbxAño.getSelectedItem().toString());
 				
-				//HAY QUE HACER UN OBJETO VACUNA PARA AGREGAR AL ARREGLO DE REGISTROS DEL NIÑO?
+				Calendar calendario=Calendar.getInstance();
+				calendario.set(anio, mes, dia);
+				Vacuna vacuna=new Vacuna(cbxVacuna.getSelectedItem().toString(), ckxObligatorio.isSelected());
 				
-				//Vacuna vac = 
-			//Registro reg = new RegistroVacuna(fecha, comentario, vacuna);
-			
+				int cedula=Integer.parseInt(txtCedula.getText());
+				try {
+					coleccion.agregarVacuna(cedula, vacuna, calendario, txtComentario.getText());
+					JOptionPane.showMessageDialog(null, "Se registro correctamente");
+				} catch (ExisteNinioException e) {
+					JOptionPane.showMessageDialog(null, e.getMessage());
+				}
 			}
 			
 		});
-		btnVacunar.setBounds(220, 80, 89, 23);
+		btnVacunar.setBounds(10, 331, 89, 23);
 		contentPane.add(btnVacunar);
 		
+		ckxObligatorio = new JCheckBox("Obligatorio");
+		ckxObligatorio.setBounds(212, 80, 97, 23);
+		contentPane.add(ckxObligatorio);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(Color.RED);
+		panel.setBounds(10, 123, 414, 49);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		cbxDia = new JComboBox();
+		cbxDia.setBounds(36, 11, 60, 20);
+		panel.add(cbxDia);
+		
+		JLabel lblDia = new JLabel("Dia");
+		lblDia.setBounds(10, 14, 46, 14);
+		panel.add(lblDia);
+		
+		JLabel lblMes = new JLabel("Mes");
+		lblMes.setBounds(133, 14, 46, 14);
+		panel.add(lblMes);
+		
+		cbxMes = new JComboBox();
+		cbxMes.setModel(new DefaultComboBoxModel(new String[] {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Setiembre", "Octubre", "Noviembre", "Diciembre"}));
+		cbxMes.setBounds(169, 11, 66, 20);
+		panel.add(cbxMes);
+		
+		JLabel lblAo = new JLabel("A\u00F1o");
+		lblAo.setBounds(276, 14, 29, 14);
+		panel.add(lblAo);
+		
+		cbxAño = new JComboBox();
+		cbxAño.setBounds(305, 11, 82, 20);
+		panel.add(cbxAño);
+		
+		for(int dia=1;dia<=31;dia++)
+		{
+			cbxDia.addItem(dia);
+		}
+		int anio=(new Date().getYear()+1900)-15;
+		for(int a=anio;a<=anio+15;a++)
+		{
+			cbxAño.addItem(a);
+		}
 		
 	}
 	
@@ -139,11 +198,6 @@ public class VentanaVacuna extends JFrame {
 		}
 		else{
 			lblDatos.setText(niño.toString());
-Vacuna[] vacunas=niño.listadoVacunas(coleccion.listadoVacunas());
-			
-			for(int i=0;i<vacunas.length;i++){
-				cbxVacuna.addItem(vacunas[i]);
-			}
 		}
 	}
 }
