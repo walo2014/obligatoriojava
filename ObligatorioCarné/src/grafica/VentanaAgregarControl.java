@@ -15,17 +15,20 @@ import javax.swing.JComboBox;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class VentanaAgregarControl extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textPeso;
 	private JTextField textAltura;
-	private JComboBox comboNiño;
 	private JLabel lblNio;
 	private JTextArea textArea;
 	private JButton btnAplicar;
 	private ColeccionNiños coleccion;
+	private JTextField textCedula;
+	private JButton btnBuscar;
 
 	/**
 	 * Create the frame.
@@ -61,11 +64,7 @@ public class VentanaAgregarControl extends JFrame {
 		lblComentarios.setBounds(76, 123, 74, 14);
 		contentPane.add(lblComentarios);
 		
-		comboNiño = new JComboBox(col.listarNombres());
-		comboNiño.setBounds(76, 36, 86, 20);
-		contentPane.add(comboNiño);
-		
-		lblNio = new JLabel("Ni\u00F1o:");
+		lblNio = new JLabel("Cedula:");
 		lblNio.setBounds(10, 39, 46, 14);
 		contentPane.add(lblNio);
 		
@@ -76,5 +75,22 @@ public class VentanaAgregarControl extends JFrame {
 		btnAplicar = new JButton("Aplicar");
 		btnAplicar.setBounds(166, 225, 89, 23);
 		contentPane.add(btnAplicar);
+		
+		textCedula = new JTextField();
+		textCedula.setBounds(76, 36, 86, 20);
+		contentPane.add(textCedula);
+		textCedula.setColumns(10);
+		
+		btnBuscar = new JButton("Buscar");
+		btnBuscar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				}
+		});
+		btnBuscar.setBounds(172, 35, 89, 23);
+		contentPane.add(btnBuscar);
+		
+		
 	}
 }
