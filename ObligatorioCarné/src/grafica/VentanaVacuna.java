@@ -120,17 +120,21 @@ public class VentanaVacuna extends JFrame {
 		JButton btnVacunar = new JButton("Vacunar");
 		btnVacunar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-
+					//cargo variables del formulario
 				int dia=cbxDia.getSelectedIndex()+1;
 				int mes=cbxMes.getSelectedIndex();
 				int anio=Integer.parseInt(cbxAño.getSelectedItem().toString());
-				
+				int cedula=Integer.parseInt(txtCedula.getText());
 				Calendar calendario=Calendar.getInstance();
 				calendario.set(anio, mes, dia);
+				
+				//creo objeto vacuna
 				Vacuna vacuna=new Vacuna(cbxVacuna.getSelectedItem().toString(), ckxObligatorio.isSelected());
 				
-				int cedula=Integer.parseInt(txtCedula.getText());
+				
 				try {
+					
+					//agrego registro vacuna
 					coleccion.agregarVacuna(cedula, vacuna, calendario, txtComentario.getText());
 					JOptionPane.showMessageDialog(null, "Se registro correctamente");
 				} catch (ExisteNinioException e) {

@@ -87,6 +87,19 @@ boolean resu = false;
 		
 	}
 	
+	public void agregarControl(int cedula, Calendar fecha, String comentario, Double peso, Double altura)throws ExisteNinioException
+	{
+		if(getDatosNiño(cedula) != null)
+		{
+			Niño n = getDatosNiño(cedula);
+			Control c = new Control(fecha, comentario, peso, altura);
+			n.agregar(c);
+		}
+		else
+			throw new ExisteNinioException("No existe el niño con esa cedula");
+
+		
+	}
 	//LISTADO DE NOMBRES
 	public String[] listarNombres()
 	{
