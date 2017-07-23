@@ -97,9 +97,23 @@ boolean resu = false;
 		}
 		else
 			throw new ExisteNinioException("No existe el niño con esa cedula");
-
 		
 	}
+	
+	public void agregarConsulta(int cedula, Calendar fecha, String comentario, String medico, String diagnostico, String recomendaciones)throws ExisteNinioException
+	{
+		if(getDatosNiño(cedula) != null)
+		{
+			Niño n = getDatosNiño(cedula);
+			Consulta c = new Consulta(fecha, comentario, medico, diagnostico, recomendaciones);
+			n.agregar(c);
+		}
+		else
+			throw new ExisteNinioException("No existe el niño con esa cedula");
+		
+	}
+	
+	
 	//LISTADO DE NOMBRES
 	public String[] listarNombres()
 	{

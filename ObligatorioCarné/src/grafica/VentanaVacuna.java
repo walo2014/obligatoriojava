@@ -94,7 +94,7 @@ public class VentanaVacuna extends JFrame {
 		contentPane.add(lblComentarios);
 		
 		txtCedula = new JTextField();
-		txtCedula.setBounds(62, 29, 127, 20);
+		txtCedula.setBounds(62, 29, 136, 20);
 		contentPane.add(txtCedula);
 		txtCedula.setColumns(10);
 		niño=null;
@@ -113,8 +113,8 @@ public class VentanaVacuna extends JFrame {
 		contentPane.add(lblDatos);
 		
 		cbxVacuna = new JComboBox();
-		cbxVacuna.setModel(new DefaultComboBoxModel(new String[] {"BCG", "Pentavante"}));
-		cbxVacuna.setBounds(64, 81, 122, 20);
+		cbxVacuna.setModel(new DefaultComboBoxModel(new String[] {"BCG", "Pentavalente (DPT, HB/Hib)", "Antipolio", "Neumococo13", "Tripe Viral (SRP)", "Varicela", "Hepatitis A"}));
+		cbxVacuna.setBounds(64, 81, 134, 20);
 		contentPane.add(cbxVacuna);
 		
 		JButton btnVacunar = new JButton("Vacunar");
@@ -147,7 +147,7 @@ public class VentanaVacuna extends JFrame {
 		contentPane.add(btnVacunar);
 		
 		ckxObligatorio = new JCheckBox("Obligatorio");
-		ckxObligatorio.setBounds(212, 80, 97, 23);
+		ckxObligatorio.setBounds(231, 80, 97, 23);
 		contentPane.add(ckxObligatorio);
 		
 		JPanel panel = new JPanel();
