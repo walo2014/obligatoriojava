@@ -90,6 +90,14 @@ public class VentanaPrincipal extends JFrame {
 				mostrarVacunar();
 			}
 		});
+		
+		JMenuItem mntmVerVacunasNios = new JMenuItem("Ver Vacunas Ni\u00F1os");
+		mntmVerVacunasNios.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				mostrarVacunasNiños();
+			}
+		});
+		mnRegistros.add(mntmVerVacunasNios);
 		mnRegistros.add(mntmVacunarNio);
 		
 		JMenuItem mntmConsultaNio = new JMenuItem("Consulta Ni\u00F1o");
@@ -107,6 +115,14 @@ public class VentanaPrincipal extends JFrame {
 			}
 		});
 		mnRegistros.add(mntmControl);
+		
+		JMenuItem mntmCantidadConsulta = new JMenuItem("Consultas M\u00E9dicas");
+		mntmCantidadConsulta.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				abrirContador();
+			}
+		});
+		mnRegistros.add(mntmCantidadConsulta);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -115,8 +131,20 @@ public class VentanaPrincipal extends JFrame {
 
 	}
 
-	protected void verregistro() {
+	protected void abrirContador() {
+		VentanaContadorConsulta ventana=new VentanaContadorConsulta(coleccion);
+		ventana.setVisible(true);
+		
+	}
+
+	protected void mostrarVacunasNiños() {
 		ListadoVacunasDadas ventana=new ListadoVacunasDadas(coleccion);
+		ventana.setVisible(true);
+		
+	}
+
+	protected void verregistro() {
+		ListadoRegistro ventana=new ListadoRegistro(coleccion);
 		ventana.setVisible(true);
 		
 	}

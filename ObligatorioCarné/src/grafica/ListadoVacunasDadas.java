@@ -30,7 +30,6 @@ public class ListadoVacunasDadas extends JFrame {
 	private JList lstVacunas;
 	
 	public ListadoVacunasDadas(ColeccionNiños coleccion) {
-		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 450, 468);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

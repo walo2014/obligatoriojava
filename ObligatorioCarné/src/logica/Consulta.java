@@ -46,4 +46,10 @@ public class Consulta extends Registro {
 
 		return super.mostrarRegistro()+" Medico : "+medico+" Diagnostico : "+diagnostico+" Recomendacion : "+recomendaciones ;
 	}
+	
+	public String toString(){
+		
+		return "Tipo Registro : Consulta "+super.toString()+" "+mostrarRegistro();
+	}
+
 }

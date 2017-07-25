@@ -150,4 +150,25 @@ public class Niño {
 		return "Nombre : " + nombre + " Documento : " + documento + " Fecha de Nacimiento : " + dia + "/" + mes + "/"
 				+ año;
 	}
+
+	public Registro[] listadoRegistro() {
+		
+		Registro[] copia = new Registro[tope];
+		for (int i = 0; i < tope; i++) {
+			copia[i] = registros[i];
+		}
+		return copia;
+	}
+//La letra F
+	public int cantidadConsultasAntesFecha(Calendar fecha) {
+		int contador=0;
+		for(int i=0;i<tope;i++)
+		{
+			Registro registro=registros[i];
+			if(registro instanceof Consulta)
+				if(registro.getFecha().before(fecha))
+					contador++;
+		}
+		return contador;
+	}
 }

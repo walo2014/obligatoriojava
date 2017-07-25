@@ -15,5 +15,7 @@ public class RegistroVacuna extends Registro {
 		this.vacuna = vacuna;
 	}
 
-	
+	public String toString(){
+		return "Tipo Registro : Vacunacion "+super.toString()+" Vacuna es "+vacuna.toString();
+	}
 }

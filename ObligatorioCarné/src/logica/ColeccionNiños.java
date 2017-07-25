@@ -1,6 +1,7 @@
 package logica;
 
 import java.util.Calendar;
+import java.util.Date;
 
 import javax.swing.JOptionPane;
 
@@ -168,6 +169,15 @@ boolean resu = false;
 	public Vacuna[] listadoVacunas() {
 		
 		return vacunas;
+	}
+	
+	public int cantidadConsultasAntesFecha(Calendar fecha){
+		int cantidad=0;
+		for(int i=0;i<topeNiños;i++){
+			Niño niño=arreglo[i];
+			cantidad=cantidad+niño.cantidadConsultasAntesFecha(fecha);
+		}
+		return cantidad;
 	}
 
 }

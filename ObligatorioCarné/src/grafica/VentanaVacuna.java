@@ -77,8 +77,30 @@ public class VentanaVacuna extends JFrame {
 		JButton btnAceptar = new JButton("Aplicar");
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				//cargo variables del formulario
+				int dia=cbxDia.getSelectedIndex()+1;
+				int mes=cbxMes.getSelectedIndex();
+				int anio=Integer.parseInt(cbxAño.getSelectedItem().toString());
+				int cedula=Integer.parseInt(txtCedula.getText());
+				Calendar calendario=Calendar.getInstance();
+				calendario.set(anio, mes, dia);
+				
+				//creo objeto vacuna
+				Vacuna vacuna=new Vacuna(cbxVacuna.getSelectedItem().toString(), ckxObligatorio.isSelected());
+				
+				
+				try {
+					
+					//agrego registro vacuna
+					coleccion.agregarVacuna(cedula, vacuna, calendario, txtComentario.getText());
+					JOptionPane.showMessageDialog(null, "Se registro correctamente");
+					txtComentario.setText("");
+				} catch (ExisteNinioException e) {
+					JOptionPane.showMessageDialog(null, e.getMessage());
+				}
 			}
-		});
+			}
+		);
 		btnAceptar.setBounds(335, 331, 89, 23);
 		contentPane.add(btnAceptar);
 		
@@ -137,6 +159,7 @@ public class VentanaVacuna extends JFrame {
 					//agrego registro vacuna
 					coleccion.agregarVacuna(cedula, vacuna, calendario, txtComentario.getText());
 					JOptionPane.showMessageDialog(null, "Se registro correctamente");
+					setVisible(false);
 				} catch (ExisteNinioException e) {
 					JOptionPane.showMessageDialog(null, e.getMessage());
 				}

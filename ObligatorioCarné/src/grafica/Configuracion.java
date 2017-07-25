@@ -37,6 +37,7 @@ public class Configuracion extends JFrame {
 		contentPane.setLayout(null);
 
 		textCantMaxNiños = new JTextField();
+		textCantMaxNiños.setText("20");
 		textCantMaxNiños.setBounds(180, 8, 43, 20);
 		contentPane.add(textCantMaxNiños);
 		textCantMaxNiños.setColumns(10);
@@ -60,6 +61,7 @@ public class Configuracion extends JFrame {
 		contentPane.add(lblMaximoRegistro);
 
 		textCantMaxRegistro = new JTextField();
+		textCantMaxRegistro.setText("40");
 		textCantMaxRegistro.setBounds(180, 40, 43, 20);
 		contentPane.add(textCantMaxRegistro);
 		textCantMaxRegistro.setColumns(10);

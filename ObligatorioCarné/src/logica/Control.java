@@ -32,6 +32,6 @@ public class Control extends Registro {
 	@Override
 	public String mostrarRegistro() {
 		
-		return super.mostrarRegistro()+" Peso : "+peso +" Altura : "+altura;
+		return "Tipo Registro : Control "+super.mostrarRegistro()+" Peso : "+peso +" Altura : "+altura;
 	}
 }
