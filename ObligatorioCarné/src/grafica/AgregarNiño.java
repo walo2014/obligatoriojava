@@ -101,19 +101,10 @@ public class AgregarNiño extends JFrame {
 		btnAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
-				if (textDocumento.equals(""))
-					JOptionPane.showMessageDialog(null, "Falto ingresar cedula");
-				else if (comboServicioMedico.getSelectedIndex() == 0)
-					JOptionPane.showMessageDialog(null, "Falto seleccionar la sociedad");
-				else {
-					if (textNombre.getText().equals(""))
-						JOptionPane.showMessageDialog(null, "Falto ingresar nombre");
-					else {
-						boolean sePudo = guardarNiño();
-						if (sePudo)
-							dispose();
-					}
-				}
+				boolean sePudo = guardar();
+				if (sePudo)
+					dispose();
+
 			}
 		});
 		btnAgregar.setBounds(177, 208, 89, 23);
@@ -143,19 +134,9 @@ public class AgregarNiño extends JFrame {
 		JButton btnNewButton = new JButton("Aplicar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if (textDocumento.equals(""))
-					JOptionPane.showMessageDialog(null, "Falto ingresar cedula");
-				else if (comboServicioMedico.getSelectedIndex() == 0)
-					JOptionPane.showMessageDialog(null, "Falto seleccionar la sociedad");
-				else {
-					if (textNombre.getText().equals(""))
-						JOptionPane.showMessageDialog(null, "Falto ingresar nombre");
-					else {
-						boolean sePudo = guardarNiño();
-						if (sePudo)
-							limpiar();
-					}
-				}
+				boolean sePudo = guardar();
+				if (sePudo)
+					limpiar();
 			}
 		});
 		btnNewButton.setBounds(289, 208, 89, 23);
@@ -193,6 +174,28 @@ public class AgregarNiño extends JFrame {
 		comboAño = new JComboBox(years_tmp.toArray());
 		comboAño.setBounds(232, 81, 59, 20);
 		contentPane.add(comboAño);
+	}
+
+	protected boolean guardar() {
+		boolean sePudo = false;
+		try {
+			if (textDocumento.getText().equals(""))
+				JOptionPane.showMessageDialog(null, "Falto ingresar cedula");
+			else if (comboServicioMedico.getSelectedIndex() == 0)
+				JOptionPane.showMessageDialog(null, "Falto seleccionar la sociedad");
+			else {
+				if (textNombre.getText().equals(""))
+					JOptionPane.showMessageDialog(null, "Falto ingresar nombre");
+				else {
+					sePudo = guardarNiño();
+
+				}
+			}
+
+		} catch (NumberFormatException ex) {
+			JOptionPane.showMessageDialog(this, "La cedula tiene que ser numero");
+		}
+		return sePudo;
 	}
 
 	protected void limpiar() {

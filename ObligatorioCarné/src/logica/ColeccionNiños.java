@@ -1,5 +1,11 @@
 package logica;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -8,7 +14,7 @@ import javax.swing.JOptionPane;
 import excepciones.ExisteNinioException;
 import excepciones.NoHayLugarException;
 
-public class ColeccionNiños {
+public class ColeccionNiños implements Serializable{
 	private Niño[] arreglo;
 	private Vacuna[] vacunas;
 	private int topeNiños;
@@ -25,6 +31,28 @@ public class ColeccionNiños {
 		maxRegistro=0;
 	}
 
+	public void guardarArchivo() throws IOException{
+		//Apertura de archivo persistencia
+		FileOutputStream archivo=new FileOutputStream("sistema.mml");
+		//comunicacion del codigo al disco
+		ObjectOutputStream escritor = new ObjectOutputStream(archivo);
+		escritor.writeObject(this);
+		escritor.close();
+		
+	}
+	
+	public ColeccionNiños leerArchivo() throws IOException, ClassNotFoundException{
+		
+		FileInputStream archivo=new FileInputStream("sistema.mml");
+		//comunicacion del disco al codigo
+		ObjectInputStream escritor = new ObjectInputStream(archivo);
+		ColeccionNiños col=(ColeccionNiños)escritor.readObject();
+		escritor.close();
+		
+		return col;
+	}
+	
+	
 	public void configurar(int maximoNiños, int maximoRegistros) {
 		maxNiños = maximoNiños;
 		topeNiños = 0;
@@ -60,7 +88,7 @@ public class ColeccionNiños {
 
 	public boolean agregar(Niño n) throws NoHayLugarException{
 
-boolean resu = false;
+        boolean resu = false;
 		if (topeNiños == arreglo.length) {
 			
          throw new NoHayLugarException("No hay lugar para mas ninios");

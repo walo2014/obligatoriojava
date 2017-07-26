@@ -1,8 +1,9 @@
 package logica;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
-public class RegistroVacuna extends Registro {
+public class RegistroVacuna extends Registro implements Serializable {
 	private Vacuna vacuna;
 	public RegistroVacuna(Calendar fecha, String comentario,Vacuna vacuna) {
 		super(fecha, comentario);

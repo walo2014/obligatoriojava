@@ -1,9 +1,10 @@
 package logica;
 
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
 
-public class Niño {
+public class Niño implements Serializable{
 	// parametros
 	private String nombre;
 	private int documento;

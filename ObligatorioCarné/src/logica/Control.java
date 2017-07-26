@@ -1,8 +1,9 @@
 package logica;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
-public class Control extends Registro {
+public class Control extends Registro implements Serializable{
 	
 	private double peso;
 	private double altura;

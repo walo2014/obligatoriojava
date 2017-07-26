@@ -1,10 +1,11 @@
 package logica;
 
+import java.io.Serializable;
 //metodo coleccion de registros ver vacuna consul control
 import java.util.Calendar;
 
 //Pendiente de programar
-public abstract class Registro {
+public abstract class Registro implements Serializable {
 
 	private Calendar fecha;// verificar si es int??
 	private String comentario;// debe ir en mayuscula es mas apropiado??
