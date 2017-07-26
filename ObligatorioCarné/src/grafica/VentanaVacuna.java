@@ -71,7 +71,7 @@ public class VentanaVacuna extends JFrame {
 		
 		JLabel lblNewLabel_1 = new JLabel("Vacuna:");
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel_1.setBounds(10, 84, 44, 14);
+		lblNewLabel_1.setBounds(0, 84, 54, 14);
 		contentPane.add(lblNewLabel_1);
 		
 		JButton btnAceptar = new JButton("Aplicar");

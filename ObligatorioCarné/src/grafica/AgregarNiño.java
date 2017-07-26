@@ -67,7 +67,7 @@ public class AgregarNiño extends JFrame {
 		lblDocumento.setHorizontalAlignment(SwingConstants.RIGHT);
 
 		JLabel lblFechaDeNacimiento = new JLabel("Fecha de Nacimiento:");
-		lblFechaDeNacimiento.setBounds(4, 84, 114, 14);
+		lblFechaDeNacimiento.setBounds(-27, 82, 153, 18);
 		lblFechaDeNacimiento.setHorizontalAlignment(SwingConstants.RIGHT);
 
 		JLabel lblServicioMedico = new JLabel("Servicio Medico:");
@@ -75,7 +75,7 @@ public class AgregarNiño extends JFrame {
 		lblServicioMedico.setHorizontalAlignment(SwingConstants.RIGHT);
 
 		JLabel lblMedicoDeCabecera = new JLabel("Medico de Cabecera:");
-		lblMedicoDeCabecera.setBounds(11, 141, 108, 14);
+		lblMedicoDeCabecera.setBounds(4, 141, 124, 14);
 		lblMedicoDeCabecera.setHorizontalAlignment(SwingConstants.RIGHT);
 
 		JLabel lblFonasa = new JLabel("Fonasa:");
