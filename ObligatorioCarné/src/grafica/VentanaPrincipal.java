@@ -201,7 +201,7 @@ public class VentanaPrincipal extends JFrame {
 	
 	protected void mostrarVacunar()
 	{
-		VentanaVacuna ventVacuna = new VentanaVacuna(coleccion);
+		VentanaAgregarVacuna ventVacuna = new VentanaAgregarVacuna(coleccion);
 		ventVacuna.setVisible(true);
 	}
 	
