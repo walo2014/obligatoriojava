@@ -13,7 +13,10 @@ import logica.ColeccionNiños;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
@@ -22,6 +25,8 @@ import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class VentanaPrincipal extends JFrame {
 
@@ -33,6 +38,12 @@ public class VentanaPrincipal extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaPrincipal(ColeccionNiños coleccion) {
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosing(WindowEvent arg0) {
+				cerrandoSistema();
+			}
+		});
 		this.coleccion = coleccion;
 		
 		//Consulto si la cantidad de niños es mayor a 0
@@ -45,7 +56,7 @@ public class VentanaPrincipal extends JFrame {
 			conf.setVisible(true);					
 		}
 		*/
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 474, 328);
 		
 		JMenuBar menuBar = new JMenuBar();
@@ -123,6 +134,14 @@ public class VentanaPrincipal extends JFrame {
 			}
 		});
 		mnRegistros.add(mntmCantidadConsulta);
+		
+		JMenu mnGuardar = new JMenu("Guardar");
+		mnGuardar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				salvar();
+			}
+		});
+		menuBar.add(mnGuardar);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -131,9 +150,32 @@ public class VentanaPrincipal extends JFrame {
 
 	}
 
+	protected void cerrandoSistema() {
+		int resultado=JOptionPane.showConfirmDialog(this, "Desea cerrar el programa?","Sistema...",JOptionPane.YES_NO_OPTION);
+		if(resultado==JOptionPane.YES_OPTION){
+			try {
+				coleccion.guardarArchivo();
+			} catch (IOException e) {
+				JOptionPane.showMessageDialog(this, "Fallo al guardarse el archivo");
+			}
+			System.exit(0);
+			
+		}
+		
+	}
+
+	protected void salvar() {
+		try {
+			coleccion.guardarArchivo();
+		} catch (IOException e) {
+			JOptionPane.showMessageDialog(this, "Fallo al guardar");
+		}
+		
+	}
+
 	protected void abrirContador() {
-		VentanaContadorConsulta ventana=new VentanaContadorConsulta(coleccion);
-		ventana.setVisible(true);
+	VentanaContadorConsulta ventana=new VentanaContadorConsulta(coleccion);
+	ventana.setVisible(true);
 		
 	}
 
@@ -144,7 +186,7 @@ public class VentanaPrincipal extends JFrame {
 	}
 
 	protected void verregistro() {
-		ListadoRegistro ventana=new ListadoRegistro(coleccion);
+	ListadoRegistro ventana=new ListadoRegistro(coleccion);
 		ventana.setVisible(true);
 		
 	}

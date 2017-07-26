@@ -2,9 +2,10 @@ package logica;
 //metodo pra vacunar
 
 
+import java.io.Serializable;
 import java.util.Calendar;
 
-public class Vacuna{
+public class Vacuna implements Serializable{
 	
 	//Parametros
 	private String nombre;

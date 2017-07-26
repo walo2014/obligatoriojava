@@ -1,9 +1,10 @@
 package logica;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
 //Pendiente de programar por Maria
-public class Consulta extends Registro {
+public class Consulta extends Registro implements Serializable{
 	// subclase de la clase Registro
 	private String medico;
 	private String diagnostico;
