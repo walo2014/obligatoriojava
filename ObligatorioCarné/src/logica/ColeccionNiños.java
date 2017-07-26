@@ -15,6 +15,7 @@ import excepciones.ExisteNinioException;
 import excepciones.NoHayLugarException;
 
 public class ColeccionNiños implements Serializable{
+	//se agrego atributos
 	private Niño[] arreglo;
 	private Vacuna[] vacunas;
 	private int topeNiños;
@@ -22,6 +23,7 @@ public class ColeccionNiños implements Serializable{
 	private int maxRegistro;
 	private int topeRegistro;
 	
+	//constructor
 	public ColeccionNiños() {
 
 		arreglo = null;
@@ -30,6 +32,7 @@ public class ColeccionNiños implements Serializable{
 		maxNiños = 0;
 		maxRegistro=0;
 	}
+	//persistencia
 
 	public void guardarArchivo() throws IOException{
 		//Apertura de archivo persistencia
@@ -41,6 +44,7 @@ public class ColeccionNiños implements Serializable{
 		
 	}
 	
+	     //recuperar archivo
 	public ColeccionNiños leerArchivo() throws IOException, ClassNotFoundException{
 		
 		FileInputStream archivo=new FileInputStream("sistema.mml");
@@ -52,40 +56,18 @@ public class ColeccionNiños implements Serializable{
 		return col;
 	}
 	
-	
+	//inicio sistema determinar maximos niños y registros
 	public void configurar(int maximoNiños, int maximoRegistros) {
 		maxNiños = maximoNiños;
 		topeNiños = 0;
 		arreglo = new Niño[maximoNiños];
 		maxRegistro=maximoRegistros;
-		inicializarSistemaVacuna();
+		
 
 	}
 
-
-	private void inicializarSistemaVacuna() {
-		vacunas=new Vacuna[2];
-		
-		//BCG
-		Vacuna BCG=new Vacuna("BCG",true);
-		BCG.agregarMes(0);
-		
-		
-		//PentaValente
-		Vacuna pentavalente=new Vacuna("Pentavalente",true);
-		pentavalente.agregarMes(2);
-		pentavalente.agregarMes(4);
-		pentavalente.agregarMes(6);
-		pentavalente.agregarMes(8);
-		
-		//Guarda
-		vacunas[0]=BCG;
-		vacunas[1]=pentavalente;
-		
-		//resto
-		
-	}
-
+    
+    //guardar niño en el sistema
 	public boolean agregar(Niño n) throws NoHayLugarException{
 
         boolean resu = false;
@@ -101,7 +83,7 @@ public class ColeccionNiños implements Serializable{
 		}
 		return resu;
 	}
-	
+	//guardar vacuna en el sistema
 	public void agregarVacuna(int cedula, Vacuna vacuna, Calendar fecha, String comentario)throws ExisteNinioException
 	{
 		if(getDatosNiño(cedula) != null)
@@ -115,7 +97,7 @@ public class ColeccionNiños implements Serializable{
 
 		
 	}
-	
+	//guardar control en el sistema
 	public void agregarControl(int cedula, Calendar fecha, String comentario, Double peso, Double altura)throws ExisteNinioException
 	{
 		if(getDatosNiño(cedula) != null)
@@ -128,7 +110,7 @@ public class ColeccionNiños implements Serializable{
 			throw new ExisteNinioException("No existe el niño con esa cedula");
 		
 	}
-	
+	//guardar consulta en el sistema
 	public void agregarConsulta(int cedula, Calendar fecha, String comentario, String medico, String diagnostico, String recomendaciones)throws ExisteNinioException
 	{
 		if(getDatosNiño(cedula) != null)

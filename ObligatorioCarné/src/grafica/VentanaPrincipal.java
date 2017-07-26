@@ -174,8 +174,8 @@ public class VentanaPrincipal extends JFrame {
 	}
 
 	protected void abrirContador() {
-	//	VentanaContadorConsulta ventana=new VentanaContadorConsulta(coleccion);
-	//	ventana.setVisible(true);
+	VentanaContadorConsulta ventana=new VentanaContadorConsulta(coleccion);
+	ventana.setVisible(true);
 		
 	}
 
@@ -186,8 +186,8 @@ public class VentanaPrincipal extends JFrame {
 	}
 
 	protected void verregistro() {
-	//	ListadoRegistro ventana=new ListadoRegistro(coleccion);
-	//	ventana.setVisible(true);
+	ListadoRegistro ventana=new ListadoRegistro(coleccion);
+		ventana.setVisible(true);
 		
 	}
 
