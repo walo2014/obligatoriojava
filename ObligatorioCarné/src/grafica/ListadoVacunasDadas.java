@@ -30,14 +30,14 @@ public class ListadoVacunasDadas extends JFrame {
 	private JList lstVacunas;
 	
 	public ListadoVacunasDadas(ColeccionNiños coleccion) {
-		setBounds(100, 100, 450, 468);
+		setBounds(100, 100, 600, 468);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		lstVacunas = new JList();
-		lstVacunas.setBounds(38, 75, 370, 343);
+		lstVacunas.setBounds(20, 75, 543, 343);
 		contentPane.add(lstVacunas);
 		lstVacunas.setModel(new AbstractListModel() {
 			String[] values = new String[] {""};

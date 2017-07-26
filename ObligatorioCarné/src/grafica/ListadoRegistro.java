@@ -31,7 +31,8 @@ public class ListadoRegistro extends JFrame {
 	private JList lstVacunas;
 	
 	public ListadoRegistro(ColeccionNiños coleccion) {
-		setBounds(100, 100, 450, 468);
+		setTitle("Listado de registros");
+		setBounds(100, 100, 600, 468);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -60,7 +61,7 @@ public class ListadoRegistro extends JFrame {
 		contentPane.add(scrollPane);
 		
 		lstVacunas = new JList();
-		lstVacunas.setBounds(38, 75, 370, 343);
+		lstVacunas.setBounds(20, 75, 542, 343);
 		contentPane.add(lstVacunas);
 		lstVacunas.setModel(new AbstractListModel() {
 			String[] values = new String[] {""};
