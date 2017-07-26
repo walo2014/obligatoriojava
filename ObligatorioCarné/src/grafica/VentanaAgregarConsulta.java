@@ -90,7 +90,7 @@ public class VentanaAgregarConsulta extends JFrame {
 			String comentario = txtComentario.getText();
 			int cedula= Integer.parseInt(txtCedula.getText());
 			int dia=cbxDia.getSelectedIndex()+1;
-			int mes=cbxMes.getSelectedIndex();
+			int mes=cbxMes.getSelectedIndex()+1;
 			int anio=Integer.parseInt(cbxAño.getSelectedItem().toString());
 			Calendar calendario=Calendar.getInstance();
 			calendario.set(anio, mes, dia);

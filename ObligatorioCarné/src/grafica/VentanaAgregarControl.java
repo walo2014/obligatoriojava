@@ -90,7 +90,7 @@ public class VentanaAgregarControl extends JFrame {
 				//cargo variable del formulario
 				
 				int dia=cbxDia.getSelectedIndex()+1;
-				int mes=cbxMes.getSelectedIndex();
+				int mes=cbxMes.getSelectedIndex()+1;
 				int anio=Integer.parseInt(cbxAño.getSelectedItem().toString());
 				String comentario = textArea.getText();
 				Double peso = Double.parseDouble(textPeso.getText());
