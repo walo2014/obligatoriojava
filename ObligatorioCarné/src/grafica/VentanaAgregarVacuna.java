@@ -144,7 +144,7 @@ public class VentanaAgregarVacuna extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 					//cargo variables del formulario
 				int dia=cbxDia.getSelectedIndex()+1;
-				int mes=cbxMes.getSelectedIndex();
+				int mes=cbxMes.getSelectedIndex()+1;
 				int anio=Integer.parseInt(cbxAño.getSelectedItem().toString());
 				int cedula=Integer.parseInt(txtCedula.getText());
 				Calendar calendario=Calendar.getInstance();

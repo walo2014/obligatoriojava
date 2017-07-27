@@ -49,6 +49,17 @@ public class Niño implements Serializable{
 	public Calendar getFechaNacimiento() {
 		return fechaNacimiento;
 	}
+	
+	public String getFechaNacimientoString() {
+		String fecha;
+	
+		int dia = fechaNacimiento.get(Calendar.DAY_OF_MONTH);
+		int mes = fechaNacimiento.get(Calendar.MONTH);
+		int año = fechaNacimiento.get(Calendar.YEAR);
+		
+		fecha = dia + "/" + mes + "/" + año;
+		return fecha;
+	}
 
 	public void setFechaNacimiento(Calendar fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
@@ -148,8 +159,16 @@ public class Niño implements Serializable{
 		int mes = fechaNacimiento.get(Calendar.MONTH);
 		int año = fechaNacimiento.get(Calendar.YEAR);
 
-		return "Nombre : " + nombre + " Documento : " + documento + " Fecha de Nacimiento : " + dia + "/" + mes + "/"
+		return "Nombre: " + nombre + " Documento: " + documento + " Fecha de Nacimiento: " + dia + "/" + mes + "/"
 				+ año;
+	}
+	public String toStringCompleto() {
+		int dia = fechaNacimiento.get(Calendar.DAY_OF_MONTH);
+		int mes = fechaNacimiento.get(Calendar.MONTH);
+		int año = fechaNacimiento.get(Calendar.YEAR);
+
+		return "Nombre: " + nombre + " Documento: " + documento + " Fecha de Nacimiento: " + dia + "/" + mes + "/"
+				+ año + " Servicio Medico: " + servicioMedico;
 	}
 
 	public Registro[] listadoRegistro() {

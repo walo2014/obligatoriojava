@@ -29,10 +29,15 @@ public class ListadoRegistro extends JFrame {
 	private ColeccionNiños coleccion;
 	private JTextField txtCedula;
 	private JList lstVacunas;
+	private JLabel lblNombre;
+	private JLabel lblFecha;
+	private JLabel label;
+	private JLabel lblServicio;
+	private JLabel lblMedicoCabecera;
 	
 	public ListadoRegistro(ColeccionNiños coleccion) {
 		setTitle("Listado de registros");
-		setBounds(100, 100, 600, 468);
+		setBounds(100, 100, 714, 468);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -47,7 +52,7 @@ public class ListadoRegistro extends JFrame {
 		lblCedula.setBounds(52, 40, 46, 14);
 		contentPane.add(lblCedula);
 		
-		JButton btnBuscar = new JButton("buscar");
+		JButton btnBuscar = new JButton("Buscar");
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				buscarNiño();
@@ -61,7 +66,7 @@ public class ListadoRegistro extends JFrame {
 		contentPane.add(scrollPane);
 		
 		lstVacunas = new JList();
-		lstVacunas.setBounds(20, 75, 542, 343);
+		lstVacunas.setBounds(20, 172, 665, 240);
 		contentPane.add(lstVacunas);
 		lstVacunas.setModel(new AbstractListModel() {
 			String[] values = new String[] {""};
@@ -72,6 +77,26 @@ public class ListadoRegistro extends JFrame {
 				return values[index];
 			}
 		});
+		
+		lblNombre = new JLabel("");
+		lblNombre.setBounds(20, 68, 237, 23);
+		contentPane.add(lblNombre);
+		
+		lblFecha = new JLabel("");
+		lblFecha.setBounds(20, 102, 237, 23);
+		contentPane.add(lblFecha);
+		
+		label = new JLabel("");
+		label.setBounds(20, 136, 237, 23);
+		contentPane.add(label);
+		
+		lblServicio = new JLabel("");
+		lblServicio.setBounds(283, 70, 237, 23);
+		contentPane.add(lblServicio);
+		
+		lblMedicoCabecera = new JLabel("");
+		lblMedicoCabecera.setBounds(283, 102, 237, 23);
+		contentPane.add(lblMedicoCabecera);
 		this.coleccion=coleccion;
 	}
 
@@ -84,6 +109,11 @@ public class ListadoRegistro extends JFrame {
 		}
 		else{
 			lstVacunas.setListData(niño.listadoRegistro());
+			
+			lblNombre.setText("Nombre: " + niño.getNombre());
+			lblFecha.setText("Fecha de Nacimiento: " + niño.getFechaNacimientoString());
+			lblServicio.setText("Servicio Medico: " + niño.getServicioMedico());
+			lblMedicoCabecera.setText("Medico de Cabecera: " + niño.getMedicoCabecera());
 		}
 		
 	}
