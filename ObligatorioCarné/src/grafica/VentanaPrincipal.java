@@ -135,13 +135,21 @@ public class VentanaPrincipal extends JFrame {
 		});
 		mnRegistros.add(mntmCantidadConsulta);
 		
-		JMenu mnGuardar = new JMenu("Guardar");
+		JMenu mnGuardar = new JMenu("Archivo");
 		mnGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				salvar();
 			}
 		});
 		menuBar.add(mnGuardar);
+		
+		JMenuItem mntmGuardar = new JMenuItem("Guardar...");
+		mntmGuardar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				salvar();
+			}
+		});
+		mnGuardar.add(mntmGuardar);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -167,6 +175,7 @@ public class VentanaPrincipal extends JFrame {
 	protected void salvar() {
 		try {
 			coleccion.guardarArchivo();
+			JOptionPane.showMessageDialog(null, "Sus datos se han guardado correctamente");
 		} catch (IOException e) {
 			JOptionPane.showMessageDialog(this, "Fallo al guardar");
 		}
