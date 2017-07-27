@@ -89,7 +89,7 @@ public class Configuracion extends JFrame {
 			int maxNiños = 20;
 			int maxRegistros = 40;
 			coleccion.configurar(maxNiños, maxRegistros);
-			JOptionPane.showMessageDialog(this, "Fallo la salvada anterior, se creo por defecto");
+			JOptionPane.showMessageDialog(this, "Se ha creado con los valores preestablecidos");
 		}
 		finally{
 			VentanaPrincipal ventana = new VentanaPrincipal(coleccion);
