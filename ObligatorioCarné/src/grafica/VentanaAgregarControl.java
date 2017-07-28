@@ -28,6 +28,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
+import java.awt.SystemColor;
+import java.awt.Toolkit;
 
 public class VentanaAgregarControl extends JFrame {
 
@@ -50,6 +52,7 @@ public class VentanaAgregarControl extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaAgregarControl(ColeccionNiños col) {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\OEM\\Desktop\\cruz.png"));
 		setTitle("Control");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 437);
@@ -142,7 +145,7 @@ public class VentanaAgregarControl extends JFrame {
 		
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
-		panel.setBackground(Color.RED);
+		panel.setBackground(SystemColor.inactiveCaption);
 		panel.setBounds(10, 154, 414, 49);
 		contentPane.add(panel);
 		

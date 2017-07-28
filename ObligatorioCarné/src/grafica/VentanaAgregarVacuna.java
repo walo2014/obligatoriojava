@@ -33,6 +33,9 @@ import java.util.Date;
 import java.awt.event.ActionEvent;
 import javax.swing.JCheckBox;
 import java.awt.Color;
+import java.awt.Toolkit;
+import java.awt.SystemColor;
+import javax.swing.UIManager;
 
 public class VentanaAgregarVacuna extends JFrame {
 
@@ -53,6 +56,7 @@ public class VentanaAgregarVacuna extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaAgregarVacuna(ColeccionNiños col) {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\OEM\\Desktop\\syringe-red-icon-256.png"));
 		setTitle("Vacunas");
 		coleccion=col;
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -174,7 +178,7 @@ public class VentanaAgregarVacuna extends JFrame {
 		contentPane.add(ckxObligatorio);
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(Color.RED);
+		panel.setBackground(UIManager.getColor("InternalFrame.inactiveTitleBackground"));
 		panel.setBounds(10, 123, 414, 49);
 		contentPane.add(panel);
 		panel.setLayout(null);

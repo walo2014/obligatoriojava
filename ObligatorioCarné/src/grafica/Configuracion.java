@@ -17,6 +17,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
+import java.awt.Toolkit;
 
 public class Configuracion extends JFrame {
 
@@ -28,6 +29,7 @@ public class Configuracion extends JFrame {
 	 * Create the frame.
 	 */
 	public Configuracion() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\OEM\\Desktop\\cruz.png"));
 		setAlwaysOnTop(true);
 		setTitle("Configuraci\u00F3n");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

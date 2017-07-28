@@ -28,6 +28,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import java.awt.Toolkit;
 
 public class AgregarNiño extends JFrame {
 
@@ -50,6 +51,7 @@ public class AgregarNiño extends JFrame {
 	 * Create the frame.
 	 */
 	public AgregarNiño(ColeccionNiños col) {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\OEM\\Desktop\\cruz.png"));
 		this.coleccion = col;
 		setTitle("Agregar ni\u00F1o");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

@@ -18,6 +18,7 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Toolkit;
 
 public class ListadoVacunasDadas extends JFrame {
 
@@ -30,6 +31,7 @@ public class ListadoVacunasDadas extends JFrame {
 	private JList lstVacunas;
 	
 	public ListadoVacunasDadas(ColeccionNiños coleccion) {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\OEM\\Desktop\\syringe-red-icon-256.png"));
 		setBounds(100, 100, 600, 468);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

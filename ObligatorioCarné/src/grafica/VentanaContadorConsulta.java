@@ -29,6 +29,7 @@ import java.util.Date;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import javax.swing.UIManager;
+import java.awt.Toolkit;
 
 public class VentanaContadorConsulta extends JFrame {
 
@@ -45,6 +46,7 @@ public class VentanaContadorConsulta extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaContadorConsulta(ColeccionNiños col) {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\OEM\\Desktop\\cruz.png"));
 		setTitle("Consultas M\u00E9dicas");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 221);

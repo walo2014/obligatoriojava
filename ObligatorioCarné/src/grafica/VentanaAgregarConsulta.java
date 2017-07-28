@@ -24,6 +24,9 @@ import java.util.Date;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextArea;
 import java.awt.Dimension;
+import javax.swing.UIManager;
+import java.awt.Toolkit;
+import java.awt.Dialog.ModalExclusionType;
 
 public class VentanaAgregarConsulta extends JFrame {
 
@@ -43,6 +46,7 @@ public class VentanaAgregarConsulta extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaAgregarConsulta(ColeccionNiños col) {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\OEM\\Desktop\\cruz.png"));
 		setTitle("Consulta");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 389);
@@ -111,7 +115,7 @@ public class VentanaAgregarConsulta extends JFrame {
 			
 			}
 		});
-		btnAplicar.setBounds(345, 316, 89, 23);
+		btnAplicar.setBounds(335, 316, 89, 23);
 		contentPane.add(btnAplicar);
 		
 		JLabel lblNio = new JLabel("Cedula");
@@ -135,8 +139,8 @@ public class VentanaAgregarConsulta extends JFrame {
 		
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
-		panel.setBackground(Color.RED);
-		panel.setBounds(27, 99, 414, 49);
+		panel.setBackground(UIManager.getColor("InternalFrame.inactiveTitleBackground"));
+		panel.setBounds(10, 99, 414, 49);
 		contentPane.add(panel);
 		
 		cbxDia = new JComboBox();

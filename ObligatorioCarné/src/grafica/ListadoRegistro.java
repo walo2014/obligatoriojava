@@ -19,6 +19,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
+import java.awt.Toolkit;
 
 public class ListadoRegistro extends JFrame {
 
@@ -36,6 +37,7 @@ public class ListadoRegistro extends JFrame {
 	private JLabel lblMedicoCabecera;
 	
 	public ListadoRegistro(ColeccionNiños coleccion) {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\OEM\\Desktop\\cruz.png"));
 		setTitle("Listado de registros");
 		setBounds(100, 100, 714, 468);
 		contentPane = new JPanel();
