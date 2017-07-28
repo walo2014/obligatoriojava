@@ -38,6 +38,9 @@ public class pruebas {
 		} catch (NoHayLugarException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
 		//Listo niño		

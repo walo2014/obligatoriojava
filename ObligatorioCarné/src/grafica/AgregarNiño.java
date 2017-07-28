@@ -246,7 +246,9 @@ public class AgregarNiño extends JFrame {
 				return false;
 			}
 		} catch (NoHayLugarException e) {
-			JOptionPane.showMessageDialog(null, e.getMensaje());
+			JOptionPane.showMessageDialog(null, e.getMessage());
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, e.getMessage());
 		}
 		return false;
 	}

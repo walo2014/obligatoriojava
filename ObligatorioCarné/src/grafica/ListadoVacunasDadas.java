@@ -72,6 +72,7 @@ public class ListadoVacunasDadas extends JFrame {
 	}
 
 	protected void buscarNiño() {
+		
 		int cedula=Integer.parseInt(txtCedula.getText());
 		Niño niño=coleccion.getDatosNiño(cedula);
 		if(niño==null){

@@ -82,8 +82,29 @@ public class VentanaPrincipal extends JFrame {
 		});
 		mnNios.add(mntmAgregarNio);
 		
-		JMenuItem mntmVerNios = new JMenuItem("Ver Ni\u00F1os");
-		mnNios.add(mntmVerNios);
+		JMenuItem mntmVacunarNio = new JMenuItem("Vacunar Ni\u00F1o");
+		mnNios.add(mntmVacunarNio);
+		
+		JMenuItem mntmConsultaNio = new JMenuItem("Consulta Ni\u00F1o");
+		mnNios.add(mntmConsultaNio);
+		
+		JMenuItem mntmControl = new JMenuItem("Control Ni\u00F1o");
+		mnNios.add(mntmControl);
+		mntmControl.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mostrarControl();
+			}
+		});
+		mntmConsultaNio.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mostrarConsulta();
+			}
+		});
+		mntmVacunarNio.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				mostrarVacunar();
+			}
+		});
 		
 		JMenu mnRegistros = new JMenu("Registros");
 		menuBar.add(mnRegistros);
@@ -95,14 +116,10 @@ public class VentanaPrincipal extends JFrame {
 				
 			}
 		});
-		mnRegistros.add(mntmVerNios_1);
 		
-		JMenuItem mntmVacunarNio = new JMenuItem("Vacunar Ni\u00F1o");
-		mntmVacunarNio.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				mostrarVacunar();
-			}
-		});
+		JMenuItem mntmVerNios = new JMenuItem("Ver Ni\u00F1os");
+		mnRegistros.add(mntmVerNios);
+		mnRegistros.add(mntmVerNios_1);
 		
 		JMenuItem mntmVerVacunasNios = new JMenuItem("Ver Vacunas Ni\u00F1os");
 		mntmVerVacunasNios.addActionListener(new ActionListener() {
@@ -111,23 +128,6 @@ public class VentanaPrincipal extends JFrame {
 			}
 		});
 		mnRegistros.add(mntmVerVacunasNios);
-		mnRegistros.add(mntmVacunarNio);
-		
-		JMenuItem mntmConsultaNio = new JMenuItem("Consulta Ni\u00F1o");
-		mntmConsultaNio.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				mostrarConsulta();
-			}
-		});
-		mnRegistros.add(mntmConsultaNio);
-		
-		JMenuItem mntmControl = new JMenuItem("Control Ni\u00F1o");
-		mntmControl.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				mostrarControl();
-			}
-		});
-		mnRegistros.add(mntmControl);
 		
 		JMenuItem mntmCantidadConsulta = new JMenuItem("Consultas M\u00E9dicas");
 		mntmCantidadConsulta.addActionListener(new ActionListener() {

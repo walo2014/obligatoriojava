@@ -68,18 +68,24 @@ public class ColeccionNiños implements Serializable{
 
     
     //guardar niño en el sistema
-	public boolean agregar(Niño n) throws NoHayLugarException{
+	public boolean agregar(Niño n) throws NoHayLugarException,Exception{
 
         boolean resu = false;
 		if (topeNiños == arreglo.length) {
 			
          throw new NoHayLugarException("No hay lugar para mas ninios");
 		} else {
-			
-			arreglo[topeNiños] = n;
-	
-			topeNiños++;
-			resu = true;
+			//la cedula no sea igual
+			if(getDatosNiño(n.getDocumento())==null){
+				arreglo[topeNiños] = n;
+		
+				topeNiños++;
+				resu = true;
+			}
+			else{
+				//mensaje
+				throw new Exception("La cedula ya existe");
+			}
 		}
 		return resu;
 	}
