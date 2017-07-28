@@ -108,6 +108,13 @@ public class VentanaAgregarConsulta extends JFrame {
 				
 				//agrego registro vacuna
 				coleccion.agregarConsulta(cedula, calendario, comentario, medico, diagnostico, recomendaciones);
+				//limpiar campos despues de dar aplicar
+				
+				txtComentario.setText("");
+				
+				txtMedico.setText("");
+				txtRecomendaciones.setText("");
+				
 				JOptionPane.showMessageDialog(null, "Se registro correctamente");
 			} catch (ExisteNinioException ex) {
 				JOptionPane.showMessageDialog(null, ex.getMessage());

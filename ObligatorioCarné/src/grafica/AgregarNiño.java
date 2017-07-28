@@ -245,6 +245,8 @@ public class AgregarNiño extends JFrame {
 						JOptionPane.ERROR_MESSAGE);
 				return false;
 			}
+		}catch(NumberFormatException ex){
+			JOptionPane.showMessageDialog(null, "La cedula tiene que ser numero");
 		} catch (NoHayLugarException e) {
 			JOptionPane.showMessageDialog(null, e.getMessage());
 		} catch (Exception e) {
