@@ -45,6 +45,7 @@ public class pruebas {
 		
 		//Listo niño		
 		coleccion.listarNombres();
+		coleccion.listarNiños();
 		
 	}
 

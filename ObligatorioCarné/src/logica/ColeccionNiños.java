@@ -146,13 +146,12 @@ public class ColeccionNiños implements Serializable{
 	//LISTADO COMPLETO DE NIÑOS
 	public Niño[] listarNiños()
 	{
-		Niño[] listado = new Niño[topeNiños];
+		Niño[] copia = new Niño[topeNiños];
 		for (int i = 0;i < topeNiños; i++)
 		{
-			listado[i] = arreglo[i];
+			copia[i] = arreglo[i];
 		}
-		
-		return listado;
+		return copia;
 	}
 		
 	public int getMaxNiños() {
@@ -181,6 +180,7 @@ public class ColeccionNiños implements Serializable{
 		}
 		return niño;
 	}
+
 
 	public Vacuna[] listadoVacunas() {
 		

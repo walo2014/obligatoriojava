@@ -20,6 +20,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import java.awt.Toolkit;
+import javax.swing.ListSelectionModel;
 
 public class ListadoRegistro extends JFrame {
 
@@ -118,11 +119,13 @@ public class ListadoRegistro extends JFrame {
 
 				
 				Niño niño = coleccion.getDatosNiño(cedula);
+				
 				if (niño == null) {
 					JOptionPane.showMessageDialog(null, "El niño no esta registrado");
 
 				} else {
 					lstVacunas.setListData(niño.listadoRegistro());
+					
 
 					lblNombre.setText("Nombre: " + niño.getNombre());
 					lblFecha.setText("Fecha de Nacimiento: " + niño.getFechaNacimientoString());

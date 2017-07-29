@@ -118,6 +118,11 @@ public class VentanaPrincipal extends JFrame {
 		});
 		
 		JMenuItem mntmVerNios = new JMenuItem("Ver Ni\u00F1os");
+		mntmVerNios.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				mostrarVerNiños();
+			}
+		});
 		mnRegistros.add(mntmVerNios);
 		mnRegistros.add(mntmVerNios_1);
 		
@@ -226,5 +231,11 @@ public class VentanaPrincipal extends JFrame {
 	{
 		VentanaAgregarConsulta ventConsulta = new VentanaAgregarConsulta(coleccion);
 		ventConsulta.setVisible(true);
+	}
+	
+	protected void mostrarVerNiños()
+	{
+		VentanaVerNiños ventVerNiños = new VentanaVerNiños(coleccion);
+		ventVerNiños.setVisible(true);
 	}
 }

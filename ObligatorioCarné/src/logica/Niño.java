@@ -179,6 +179,7 @@ public class Niño implements Serializable{
 		}
 		return copia;
 	}
+	
 //La letra F
 	public int cantidadConsultasAntesFecha(Calendar fecha) {
 		int contador=0;
