@@ -15,7 +15,7 @@ public class pruebas {
 		//carga de configuracion inicial
 		coleccion.configurar(1, 2);
 			
-		
+		//hola
 		//carga de un niño de prueba1
 		Calendar fechaNacimiento = Calendar.getInstance();
 		String nombre = "Nombre de prueba";
