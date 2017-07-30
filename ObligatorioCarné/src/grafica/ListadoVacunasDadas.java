@@ -31,6 +31,7 @@ public class ListadoVacunasDadas extends JFrame {
 	private JList lstVacunas;
 	
 	public ListadoVacunasDadas(ColeccionNiños coleccion) {
+		setTitle("Cantidad de vacunas");
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\OEM\\Desktop\\syringe-red-icon-256.png"));
 		setBounds(100, 100, 600, 468);
 		contentPane = new JPanel();
@@ -72,7 +73,10 @@ public class ListadoVacunasDadas extends JFrame {
 	}
 
 	protected void buscarNiño() {
-		
+		try {
+		if (txtCedula.getText().equals(""))
+			JOptionPane.showMessageDialog(null, "Falto ingresar cedula");
+		else{
 		int cedula=Integer.parseInt(txtCedula.getText());
 		Niño niño=coleccion.getDatosNiño(cedula);
 		if(niño==null){
@@ -84,4 +88,9 @@ public class ListadoVacunasDadas extends JFrame {
 		}
 		
 	}
+	
+	}catch (NumberFormatException ex) {
+		JOptionPane.showMessageDialog(null, "El documento debe ser numerico");
+	}
+}
 }

@@ -43,7 +43,7 @@ public class VentanaAgregarVacuna extends JFrame {
 	private ColeccionNiños coleccion;
 	private Niño niño;
 	private JTextField txtCedula;
-	private JLabel lblDatos;
+	private JLabel lblMensaje;
 	private JComboBox cbxVacuna;
 	private JComboBox cbxDia;
 	private JComboBox cbxMes;
@@ -60,7 +60,7 @@ public class VentanaAgregarVacuna extends JFrame {
 		setTitle("Vacunas");
 		coleccion=col;
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 450, 404);
+		setBounds(100, 100, 481, 404);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -134,9 +134,9 @@ public class VentanaAgregarVacuna extends JFrame {
 		btnBuscar.setBounds(220, 25, 89, 23);
 		contentPane.add(btnBuscar);
 		
-		lblDatos = new JLabel("");
-		lblDatos.setBounds(60, 54, 364, 23);
-		contentPane.add(lblDatos);
+		lblMensaje = new JLabel("");
+		lblMensaje.setBounds(20, 50, 364, 23);
+		contentPane.add(lblMensaje);
 		
 		cbxVacuna = new JComboBox();
 		cbxVacuna.setModel(new DefaultComboBoxModel(new String[] {"BCG", "Pentavalente (DPT, HB/Hib)", "Antipolio", "Neumococo13", "Tripe Viral (SRP)", "Varicela", "Hepatitis A"}));
@@ -221,14 +221,23 @@ public class VentanaAgregarVacuna extends JFrame {
 	}
 	
 	protected void buscarNiño() {
+		try {
+		if (txtCedula.getText().equals(""))
+			JOptionPane.showMessageDialog(null, "Falto ingresar cedula");
+		else{
 		int cedula=Integer.parseInt(txtCedula.getText());
 		niño=coleccion.getDatosNiño(cedula);
 		if(niño==null){
-			lblDatos.setText("No se encuentra en el sistema");		
+			lblMensaje.setText("No se encuentra en el sistema");		
 			
 		}
 		else{
-			lblDatos.setText(niño.toString());
+			lblMensaje.setText(niño.toString());
 		}
-	}
+		}
+	}catch (NumberFormatException ex) {
+		lblMensaje.setText("Error, la cedula debe ser numerica" );
+	}{
+}
+}
 }

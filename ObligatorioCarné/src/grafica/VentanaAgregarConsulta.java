@@ -201,6 +201,10 @@ public class VentanaAgregarConsulta extends JFrame {
 		contentPane.add(lblComentario);
 	}
 	protected void buscarNiño() {
+		try {
+		if (txtCedula.getText().equals(""))
+			JOptionPane.showMessageDialog(null, "Falto ingresar cedula");
+		else{
 		int cedula=Integer.parseInt(txtCedula.getText());
 		niño=coleccion.getDatosNiño(cedula);
 		if(niño==null){
@@ -210,5 +214,10 @@ public class VentanaAgregarConsulta extends JFrame {
 		else{
 			lblDatos.setText(niño.toString());
 		}
+		}
+	}catch (NumberFormatException ex) {
+		lblDatos.setText("Error, la cedula debe ser numerica" );
+	}{
+}
 }
 }

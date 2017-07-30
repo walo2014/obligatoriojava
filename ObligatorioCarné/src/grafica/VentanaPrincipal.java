@@ -64,6 +64,22 @@ public class VentanaPrincipal extends JFrame {
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
+		JMenu mnGuardar = new JMenu("Archivo");
+		mnGuardar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				salvar();
+			}
+		});
+		menuBar.add(mnGuardar);
+		
+		JMenuItem mntmGuardar = new JMenuItem("Guardar...");
+		mntmGuardar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				salvar();
+			}
+		});
+		mnGuardar.add(mntmGuardar);
+		
 		JMenu mnNios = new JMenu("Ni\u00F1os");
 		menuBar.add(mnNios);
 		
@@ -82,13 +98,13 @@ public class VentanaPrincipal extends JFrame {
 		});
 		mnNios.add(mntmAgregarNio);
 		
-		JMenuItem mntmVacunarNio = new JMenuItem("Vacunar Ni\u00F1o");
+		JMenuItem mntmVacunarNio = new JMenuItem("Agregar Vacuna");
 		mnNios.add(mntmVacunarNio);
 		
-		JMenuItem mntmConsultaNio = new JMenuItem("Consulta Ni\u00F1o");
+		JMenuItem mntmConsultaNio = new JMenuItem("Agregar Consulta");
 		mnNios.add(mntmConsultaNio);
 		
-		JMenuItem mntmControl = new JMenuItem("Control Ni\u00F1o");
+		JMenuItem mntmControl = new JMenuItem("Agregar Control");
 		mnNios.add(mntmControl);
 		mntmControl.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -109,7 +125,7 @@ public class VentanaPrincipal extends JFrame {
 		JMenu mnRegistros = new JMenu("Registros");
 		menuBar.add(mnRegistros);
 		
-		JMenuItem mntmVerNios_1 = new JMenuItem("Ver Registros Ni\u00F1os");
+		JMenuItem mntmVerNios_1 = new JMenuItem("Ver Registros del Ni\u00F1o");
 		mntmVerNios_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				verregistro();
@@ -126,7 +142,7 @@ public class VentanaPrincipal extends JFrame {
 		mnRegistros.add(mntmVerNios);
 		mnRegistros.add(mntmVerNios_1);
 		
-		JMenuItem mntmVerVacunasNios = new JMenuItem("Ver Vacunas Ni\u00F1os");
+		JMenuItem mntmVerVacunasNios = new JMenuItem("Ver Vacunas del Ni\u00F1o");
 		mntmVerVacunasNios.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				mostrarVacunasNiños();
@@ -134,29 +150,13 @@ public class VentanaPrincipal extends JFrame {
 		});
 		mnRegistros.add(mntmVerVacunasNios);
 		
-		JMenuItem mntmCantidadConsulta = new JMenuItem("Consultas M\u00E9dicas");
+		JMenuItem mntmCantidadConsulta = new JMenuItem("Ver Consultas M\u00E9dicas del Ni\u00F1o");
 		mntmCantidadConsulta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				abrirContador();
 			}
 		});
 		mnRegistros.add(mntmCantidadConsulta);
-		
-		JMenu mnGuardar = new JMenu("Archivo");
-		mnGuardar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				salvar();
-			}
-		});
-		menuBar.add(mnGuardar);
-		
-		JMenuItem mntmGuardar = new JMenuItem("Guardar...");
-		mntmGuardar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				salvar();
-			}
-		});
-		mnGuardar.add(mntmGuardar);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
