@@ -60,7 +60,7 @@ public class VentanaAgregarVacuna extends JFrame {
 		setTitle("Vacunas");
 		coleccion=col;
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 481, 404);
+		setBounds(100, 100, 509, 404);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -135,7 +135,7 @@ public class VentanaAgregarVacuna extends JFrame {
 		contentPane.add(btnBuscar);
 		
 		lblMensaje = new JLabel("");
-		lblMensaje.setBounds(20, 50, 364, 23);
+		lblMensaje.setBounds(20, 50, 440, 23);
 		contentPane.add(lblMensaje);
 		
 		cbxVacuna = new JComboBox();

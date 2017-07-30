@@ -140,7 +140,7 @@ public class VentanaAgregarControl extends JFrame {
 		contentPane.add(btnBuscar);
 		
 		lblDatos = new JLabel("");
-		lblDatos.setBounds(76, 67, 301, 23);
+		lblDatos.setBounds(20, 64, 385, 23);
 		contentPane.add(lblDatos);
 		
 		JPanel panel = new JPanel();
