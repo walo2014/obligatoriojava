@@ -61,7 +61,7 @@ public class ListadoVacunasDadas extends JFrame {
 		lblCedula.setBounds(52, 40, 46, 14);
 		contentPane.add(lblCedula);
 		
-		JButton btnBuscar = new JButton("buscar");
+		JButton btnBuscar = new JButton("Buscar");
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				buscarNiño();
